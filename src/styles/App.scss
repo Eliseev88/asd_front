@@ -1,0 +1,59 @@
+#root {
+  height: 100%;
+
+  @include text();
+}
+
+.link {
+  text-decoration: none;
+  transition: color .2s linear;
+
+  @include text($main-font-size, $link-color, 400, 0, 20.8px);
+
+  &:hover,
+  &:active {
+    color: $visited-link-color;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-btn-color;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  transition: all .2s linear;
+
+  &:disabled {
+    color: rgba($color: #FFFF, $alpha: 0.5);
+
+    &:hover {
+      color: rgba($color: #FFFF, $alpha: 0.5);
+      background-color: $bg-btn-color;
+      pointer-events: none;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-color: $hover-bg-color;
+    color: $hover-text-color;
+  }
+
+  &:active {
+    box-shadow: inset 0px 2px 2px 0 rgba(0, 0, 0, 15%);
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}

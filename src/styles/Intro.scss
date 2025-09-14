@@ -1,0 +1,26 @@
+.intro {
+	margin: 455px 0 0 154px;
+
+	&__wrp {
+		margin-bottom: 40px;
+	}
+
+	&__img {
+		display: inline-block;
+		width: 410px;
+		height: 67.5px;
+		margin-right: 40px;
+		transform: translateY(10px);
+	}
+
+	&__text {
+		@include text(50px, #FFF, 400, 0, 70px);
+	}
+
+	&__btn {
+		width: 410px;
+		padding: 14px 0;
+
+		@include text(30px, $btn-color, 400, 0, 100%);
+	}
+}

@@ -1,0 +1,50 @@
+:root {
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/src/assets/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/src/assets/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/src/assets/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+}
+
+body {
+  font-family: 'JetBrainsMono', sans-serif;
+  height: 100%;
+  background-color: $bg-color;
+}
+
+button,
+input,
+textarea {
+  font-family: 'JetBrainsMono', sans-serif;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent !important;
+}

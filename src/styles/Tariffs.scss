@@ -1,0 +1,309 @@
+.tariffs {
+	margin-top: 60px;
+	padding: 40px;
+	border-bottom: 1px solid $border-section-color;
+	border-radius: 16px;
+	background-color: $bg-section-color;
+	backdrop-filter: blur(18px);
+	box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.25);
+
+	&__title {
+		margin-bottom: 13px;
+
+		@include text($title-font-size, $additional-color);
+	}
+
+	&__subtitle {
+		margin-bottom: 30px;
+		opacity: .7;
+
+		@include text($main-font-size, $additional-color);
+	}
+
+	&__btns {
+		margin-bottom: 15px;
+		width: 374px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		border-radius: 25px;
+		background-color: #414B5D;
+		backdrop-filter: blur(11px);
+		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	&__select-btn {
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+		transition: all .2s linear;
+		border: none;
+		background-color: #414B5D;
+
+		@include text($sub-font-size, rgba(255, 255, 255, .8), 500, 0, 20px);
+
+		&:first-child {
+			border-top-left-radius: 25px;
+			border-bottom-left-radius: 25px;
+		}
+
+		&:last-child {
+			border-top-right-radius: 25px;
+			border-bottom-right-radius: 25px;
+		}
+
+		&.__active {
+			color: $btn-color;
+			background-color: $bg-btn-color;
+		}
+
+		&:first-child.__active {
+			border-top-right-radius: 26px;
+			border-bottom-right-radius: 26px;
+		}
+
+		&:last-child.__active {
+			border-top-left-radius: 26px;
+			border-bottom-left-radius: 26px;
+		}
+	}
+
+	&__country-btn {
+		width: 291px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		backdrop-filter: blur(11px);
+		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+		border: 1px solid rgba(216, 217, 218, 0.06);
+
+		@include text($sub-font-size, $btn-color, 500, 0, 20px);
+	}
+
+	&__wrp {
+		margin-top: 30px;
+		display: grid;
+		grid-template-columns: repeat(3, 272px);
+		grid-template-rows: repeat(2, auto);
+		gap: 30px;
+	}
+
+	&__element {
+		padding: 30px 20px;
+		border: 1px solid $border-section-color;
+		border-radius: 16px;
+		background-color: $bg-block-color;
+	}
+
+	&__name {
+		margin-bottom: 20px;
+		width: 100px;
+		height: 29px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $border-section-color;
+		border-radius: 16px;
+		background-color: rgba(216, 217, 218, 0.02);
+		text-transform: uppercase;
+
+		@include text(13px, $primary-color, 500, 0.65px, 17px);
+
+		&--var1 {
+			color: $var1-color;
+		}
+
+		&--var2 {
+			color: $var2-color;
+		}
+
+		&--var3 {
+			color: $var3-color;
+		}
+
+		&--var4 {
+			color: $var4-color;
+		}
+
+		&--var5 {
+			color: $var5-color;
+		}
+
+		&--ind {
+			width: 116px;
+			padding: 6px 0;
+			justify-content: center;
+			color: #D8D9DA;
+		}
+	}
+
+	&__display {
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+	}
+
+	&__price {
+		@include text(30px, #D8D9DA, 400, 0, 100%);
+	}
+
+	&__symbol {
+		letter-spacing: 3px;
+	}
+
+	&__discount {
+		margin-bottom: 20px;
+
+		@include text($main-font-size, $secondary-color, 400, 0, 21px);
+	}
+
+	&__order-btn {
+		width: 100%;
+		height: 36px;
+		color: $btn-color;
+		font-size: $sub-font-size;
+	}
+
+	&__info {
+		margin-top: 20px;
+	}
+
+	&__box {
+		margin-bottom: 13px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__suptitle {
+		margin-bottom: 3px;
+
+		@include text($sub-font-size, $secondary-color, 400, 0, 20px);
+	}
+
+	&__text {
+		white-space: nowrap;
+		@include text($main-font-size, $primary-color, 400, 0, 20px);
+	}
+
+	&__describe {
+		margin-bottom: 15px;
+
+		@include text($title-font-size, #D8D9DA, 400, -1px, 100%);
+	}
+
+	&__additional {
+		margin-bottom: 20px;
+		
+		@include text($main-font-size, $secondary-color, 400, -1px, 21px);
+	}
+
+	&__custom-btn {
+		width: 100%;
+		height: 36px;
+		margin-bottom: 20px;
+
+		@include text($sub-font-size, $btn-color);
+	}
+
+	&__final {
+		@include text($main-font-size, $primary-color, 400, 0, 20px);
+	}
+}
+
+
+
+// ------SELECTOR-------
+
+.selector {
+	height: 30px;
+	min-width: 115px;
+	padding: 5px 25px 5px 10px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 15px;
+	background: url('../assets/icons/shevron-down.svg') no-repeat 94%;
+	background-color: #414B5D;
+	cursor: pointer;
+
+	@include text($sub-font-size, #D8D9DA, 400, 0, 20px);
+
+	&:hover .selector__month {
+		color: $link-color;
+	}
+
+	&.__open {
+		height: 48px;
+		padding-top: 18px;
+		background-image: url('../assets/icons/shevron-up.svg');
+		width: 242px;
+		position: absolute;
+		left: 50%;
+		z-index: 1;
+		transform: translateX(-50%);
+		background-position: 217px 22px;
+		border-bottom-right-radius: unset;
+		border-bottom-left-radius: unset;
+		border-bottom: none;
+
+		& .selector__month {
+			width: unset;
+			display: flex;
+			margin-right: 20px;
+			color: $link-color;
+			justify-content: flex-end;
+			letter-spacing: 0;
+		}
+
+		& .selector__grid {
+			display: grid;
+		}
+	}
+
+	&__month {
+		line-height: 17px;
+		transition: color .2s linear;
+		white-space: nowrap;
+		letter-spacing: -1px;
+	}
+
+	&__grid {
+		width: 242px;
+		padding: 20px;
+		transform: translateX(-11px);
+		display: none;
+		grid-template-columns: auto auto 88.5px;
+		grid-template-rows: repeat(4, auto);
+		column-gap: 5px;
+		row-gap: 10px;
+		background-color: #414B5D;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}
+
+	&__element {
+		
+		&.__hover {
+			margin-left: 5px;
+			transition: color .2s linear;
+			white-space: nowrap;
+
+			&:hover {
+				color: $link-color;
+			}
+		}
+	}
+
+	&__old-price {
+		text-decoration: line-through;
+		opacity: 50%;
+	}
+}

@@ -1,0 +1,69 @@
+.langSwitcher {
+	position: absolute;
+	right: -125px;
+	z-index: 1;
+
+	&__btn {
+		padding: 7px 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		width: 63px;
+		height: 34px;
+		border: none;
+		border-radius: 16px;
+		background-color: $bg-btn-color;
+		cursor: pointer;
+
+		transition: all .2s linear;
+
+		outline-width: 0;
+		outline-color: transparent;
+
+		@include text($sub-font-size, $btn-color, 400, 0, 20px);
+
+		&:hover,
+		&:active {
+			background-color: $hover-bg-color;
+			color: $hover-text-color;
+		}
+
+		&:active {
+			box-shadow: inset 0px 2px 2px 0 rgba(0, 0, 0, 15%);
+		}
+	}
+
+	&__element {
+		display: flex;
+		align-items: center;
+		gap: 3px;
+		cursor: pointer;
+	}
+
+	&__img {
+		border-radius: 50%;
+	}
+
+	.__open {
+		height: 67px;
+		transform: translateY(17px);
+	}
+
+	.__invisible {
+		opacity: 0;
+	}
+
+	.__visible {
+		opacity: 1;
+		transition: opacity .2s linear;
+	}
+
+	.__hr {
+		display: inline-block;
+		width: 46.5px;
+		height: 1px;
+		background-color: #FFF;
+		margin: 6px 0;
+	}
+}

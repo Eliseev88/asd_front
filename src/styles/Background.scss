@@ -1,0 +1,12 @@
+.background {
+  height: 560px;
+  width: 1259px;
+  background-image: linear-gradient(to top, rgba(38, 42, 51, 1), rgba(38, 42, 51, 0.1)), url('../assets/images/carbon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  position: absolute;
+  top: 0;
+  left: -154px;
+}

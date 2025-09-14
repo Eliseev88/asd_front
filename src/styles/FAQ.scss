@@ -1,0 +1,64 @@
+.faq {
+	margin-top: 60px;
+	padding: 40px;
+	border-bottom: 1px solid $border-section-color;
+	border-radius: 16px;
+	background-color: $bg-section-color;
+	backdrop-filter: blur(18px);
+	box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.25);
+
+	&__title {
+		margin-bottom: 13px;
+
+		@include text($title-font-size, $additional-color);
+	}
+
+	&__subtitle {
+		margin-bottom: 30px;
+		opacity: .7;
+
+		@include text($main-font-size, $additional-color, 400, 0, 132%);
+	}
+
+	&__wrp {
+		margin-bottom: 30px;
+		padding: 30px 25px;
+		border: 1px solid $border-section-color;
+		border-radius: 16px;
+		background-color: $bg-block-color;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__question {
+		margin-bottom: 16px;
+
+		@include text($sup-font-size, $primary-color, 400, -1px, 132%);
+
+		&--var1 {
+			color: $var1-color;
+		}
+
+		&--var2 {
+			color: $var2-color;
+		}
+
+		&--var3 {
+			color: $var3-color;
+		}
+
+		&--var4 {
+			color: $var4-color;
+		}
+
+		&--var5 {
+			color: $var5-color;
+		}
+	}
+
+	&__answer {
+		@include text($main-font-size, $primary-color, 400, 0, 132%);
+	}
+}

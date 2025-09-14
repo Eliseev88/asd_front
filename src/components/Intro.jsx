@@ -1,0 +1,22 @@
+import '../styles/Intro.scss';
+import LOGO from '../assets/icons/logo.svg';
+import { useTranslation } from 'react-i18next';
+import Button from './Button';
+
+function Intro() {
+	const {t} = useTranslation();
+
+  return (
+	<div className="intro">
+		<div className='intro__wrp'>
+			<img src={LOGO} alt="logo" className='intro__img' />
+			<span className='intro__text'>
+				&mdash;&nbsp;{t('ваш сервер в')}&nbsp;{t('изоляции')}. {t('От')}&nbsp;{t('атак')}. {t('От')}&nbsp;{t('сбоев')}. {t('От')}&nbsp;{t('любопытных')}.
+			</span>
+		</div>
+		<Button className='intro__btn'>{t('Подобрать тариф')}</Button>
+	</div>
+  )
+}
+
+export default Intro

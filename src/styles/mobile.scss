@@ -1,0 +1,119 @@
+.mobile-header {
+	display: none;
+
+	&.__open {
+		display: block;
+		width: 75%;
+		height: 100vh;
+		background-color: #242831;
+		margin-left: 25%;
+		transform: translateY(-76px);
+		padding-top: 12px;
+		border-top-left-radius: 15px;
+		border-bottom-left-radius: 15px;
+		border-left: 1px solid rgba(255, 255, 255, 0.06);
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	&__content {
+		display: none;
+		margin-top: 17px;
+		flex-direction: column;
+		gap: 20px;
+		padding: 0 25px;
+
+		&.__open {
+			display: flex;
+		}
+
+		& .__hr {
+			height: 1px;
+			background-color: $primary-color;
+			opacity: 20%;
+		}
+	}
+}
+
+.mobile-tariffs {
+	display: none;
+	margin-top: 30px;
+	overflow: auto;
+	gap: 15px;
+
+	&__block {
+		display: none;
+	}
+
+	&__wrp {
+		margin-top: 20px;
+		padding: 20px;
+		border: 1px solid $border-section-color;
+		border-radius: 16px;
+		background-color: $bg-block-color;
+
+		&.__height {
+			height: 290px;
+		}
+	}
+	&__name {
+		margin-bottom: 17px;
+	}
+	&__price {
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 13px;
+		border-bottom: 1px solid rgba(226, 232, 240, .2);
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		& .selector__element {
+			display: flex;
+			gap: 3px;
+		}
+
+		& .selector__old-price span:first-child {
+			letter-spacing: 3px;
+		}
+	}
+	&__cost {
+		display: flex;
+		gap: 10px;
+		font-size: 18px;
+	}
+}
+
+.__mobile {
+	display: none;
+}
+
+.burger {
+	display: none;
+	width: 25px;
+	height: 21.5px;
+	border: none;
+	background-image: url('../assets//icons/burger.svg');
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+
+	&.__open {
+		// visibility: hidden;
+	}
+}
+.cross {
+	display: block;
+	width: 25px;
+	height: 21.5px;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	background-image: url('../assets/icons/cross.svg');
+	margin-left: calc(100% - 50px);
+	margin-top: 16px;
+}

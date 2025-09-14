@@ -1,0 +1,51 @@
+.footer {
+	flex: 0 0 auto;
+	margin-top: 60px;
+	height: 220px;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	background-color: rgba(31, 36, 42, 0.3);
+	padding: 41px 0;
+
+	&__wrp {
+		display: flex;
+		justify-content: space-between;
+		gap: 100px;
+
+		& img {
+			display: block;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__text {
+		max-width: 307px;
+
+		@include text($main-font-size, #BDBEC1, 400, 0, 20px);
+	}
+
+	&__column {
+		transform: translateY(18px);
+
+		& .__margin {
+			margin-bottom: 5px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 20px;
+
+		@include text($main-font-size, $additional-color, 400, 0, 100%);
+	}
+
+	&__link {
+		display: inline-block;
+		text-decoration: none;
+		transition: color .2s linear;
+
+		@include text($main-font-size, $link-color, 400, 0, 21px);
+
+		&:hover {
+			color: $hover-text-color;
+		}
+	}
+}

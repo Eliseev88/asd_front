@@ -1,0 +1,42 @@
+// colors
+$bg-color: #262A33;
+$bg-section-color: rgba(31, 36, 42, 0.3);
+$border-section-color: rgba(255, 255, 255, 0.06);
+$bg-block-color: rgba(41, 47, 59, 1);
+$primary-color: #E2E8F0;
+$secondary-color: #B5B7B8;
+$additional-color: #FFF;
+$bg-btn-color: #459AD1;
+$link-color: #459AD1;
+$btn-color: #FFF;
+$visited-link-color: #71B2DC;
+$hover-bg-color: #78C0EE;
+$hover-text-color: #0A649F;
+$var1-color: #95669C;
+$var2-color: #6C9FCA;
+$var3-color: #B77237;
+$var4-color: #658F56;
+$var5-color: #9C3120;
+
+// font-size
+$main-font-size: 16px;
+$sub-font-size: 14px;
+$sup-font-size: 24px;
+$title-font-size: 36px;
+
+// size
+$content-width: 956px;
+
+
+// mixins
+@mixin text($size: $main-font-size,
+	$color: $primary-color,
+	$weight: 400,
+	$spacing: 0,
+	$line: 100%) {
+	font-size: $size;
+	font-weight: $weight;
+	color: $color;
+	letter-spacing: $spacing;
+	line-height: $line;
+}

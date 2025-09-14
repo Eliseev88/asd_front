@@ -1,0 +1,115 @@
+.contacts {
+	margin-top: 60px;
+	padding: 40px;
+	border-bottom: 1px solid $border-section-color;
+	border-radius: 16px;
+	background-color: $bg-section-color;
+	backdrop-filter: blur(18px);
+	box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.25);
+
+	&__title {
+		margin-bottom: 13px;
+
+		@include text($title-font-size, $additional-color);
+	}
+
+	&__subtitle {
+		margin-bottom: 30px;
+		opacity: .7;
+
+		@include text($main-font-size, $additional-color);
+	}
+
+	&__wrp {
+		margin-bottom: 30px;
+		padding: 30px 25px;
+		border: 1px solid $border-section-color;
+		border-radius: 16px;
+		background-color: $bg-block-color;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__info {
+		margin-bottom: 20px;
+
+		@include text($main-font-size, $primary-color, 400, 0, 20px);
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__input {
+		width: 232px;
+		height: 36px;
+		outline: 1px solid transparent;
+		border: none;
+		border-radius: 9px;
+		padding: 8px 10px;
+	}
+
+	&__textaria {
+		height: 76px;
+		outline: 1px solid transparent;
+		border: none;
+		border-radius: 9px;
+		padding: 8px 10px;
+		resize: none;
+	}
+
+	&__submit {
+		width: 232px;
+		height: 36px;
+
+		@include text($sub-font-size, $btn-color, 400, 0, 20px);
+	}
+
+	&__text {
+		margin-bottom: 20px;
+
+		@include text($main-font-size, $primary-color, 400, 0, 20px);
+	}
+
+	&__social {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	&__element {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		& span {
+			@include text($main-font-size, $primary-color, 400, 0, 20px);
+		}
+	}
+
+	&__tg,
+	&__mail {
+		width: 33px;
+		height: 33px;
+		background: url('../assets/icons/tg.svg') no-repeat center;
+		transition: background-image .2s linear;
+	}
+	&__mail {
+		background: url('../assets/icons/mail.svg') no-repeat center;
+
+		&:hover {
+			background-image: url('../assets/icons/mail-hover.svg');
+		}
+	}
+	&__tg {
+		background: url('../assets/icons/tg.svg') no-repeat center;
+
+		&:hover {
+			background-image: url('../assets/icons/tg-hover.svg');
+		}
+	}
+}

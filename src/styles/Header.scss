@@ -1,0 +1,46 @@
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	height: 76px;
+	border-bottom: 1px solid $border-section-color;
+	backdrop-filter: blur(6px);
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+	&__wrp {
+		position: relative;
+		max-width: $content-width;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		display: block;
+		cursor: pointer;
+	}
+
+	&__btn {
+		height: 34px;
+		width: 200px;
+		
+		@include text($sub-font-size, $btn-color, 400, 0, 100%);
+	}
+
+	&.__open {
+		background-color: #242831;
+	}
+}
+
+.nav {
+	&__list {
+		display: flex;
+	}
+
+	&__element {
+		list-style: none;
+		margin-left: 20px;
+	}
+}
