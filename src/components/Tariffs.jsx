@@ -263,6 +263,28 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('IND')}>
+						<div className="tariffs__name tariffs__name--ind">Individual</div>
+						<div className='tariffs__describe'>{t('По запросу')}</div>
+						<div className='tariffs__info'>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Процессор')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Память')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Хранилище')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+						</div>
+					</div>
 				</div>}
 				{server === 'dedicated' && <div className='mobile-tariffs__scroll'>
 					<div className={["tariffs__element __mobile", tariff.name === '1 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps1')}>
@@ -430,60 +452,96 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('IND')}>
+						<div className="tariffs__name tariffs__name--ind">Individual</div>
+						<div className='tariffs__describe'>{t('По запросу')}</div>
+						<div className='tariffs__info'>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Процессор')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Ядра')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Память')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Хранилище')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('Трафик')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+							<div className="tariffs__box">
+								<div className="tariffs__suptitle">{t('ОС')}</div>
+								<div className="tariffs__text">&mdash;</div>
+							</div>
+						</div>
+					</div>
 				</div>}
 				<div className="mobile-tariffs__wrp">
 					<div className='mobile-tariffs__name'>{t('Тариф')} <span className={tariff.class}>{tariff.name}</span></div>
-					<div>
+					{tariff.name !== 'Individual' && <div>
 						<div className="mobile-tariffs__price">
-						<div className='mobile-tariffs__month'>{t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}</div>
-						<div className='mobile-tariffs__cost'>
-							<div className="selector__element">
-							<span>&#8364;</span>
-							<span>{tariff.one}</span>
+							<div className='mobile-tariffs__month'>{t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}</div>
+							<div className='mobile-tariffs__cost'>
+								<div className="selector__element">
+									<span>&#8364;</span>
+									<span>{tariff.one}</span>
+								</div>
 							</div>
-						</div>
-						</div>
-						<div className="mobile-tariffs__price">
-						<div className='mobile-tariffs__month'>{t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}</div>
-						<div className='mobile-tariffs__cost'>
-							<div className="selector__old-price">
-							<span>&#8364;</span>
-							<span>{tariff.three.old}</span>
-							</div>
-							<div className="selector__element">
-							<span>&#8364;</span>
-							<span>{tariff.three.new}</span>
-							</div>
-						</div>
 						</div>
 						<div className="mobile-tariffs__price">
-						<div className='mobile-tariffs__month'>{t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}</div>
-						<div className='mobile-tariffs__cost'>
-							<div className="selector__old-price">
-							<span>&#8364;</span>
-							<span>{tariff.six.old}</span>
+							<div className='mobile-tariffs__month'>{t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}</div>
+							<div className='mobile-tariffs__cost'>
+								<div className="selector__old-price">
+									<span>&#8364;</span>
+									<span>{tariff.three.old}</span>
+								</div>
+								<div className="selector__element">
+									<span>&#8364;</span>
+									<span>{tariff.three.new}</span>
+								</div>
 							</div>
-							<div className="selector__element">
-							<span>&#8364;</span>
-							<span>{tariff.six.new}</span>
-							</div>
-						</div>
 						</div>
 						<div className="mobile-tariffs__price">
-						<div className='mobile-tariffs__month'>{t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}</div>
-						<div className='mobile-tariffs__cost'>
-							<div className="selector__old-price">
-							<span>&#8364;</span>
-							<span>{tariff.twelve.old}</span>
-							</div>
-							<div className="selector__element">
-							<span>&#8364;</span>
-							<span>{tariff.twelve.new}</span>
+							<div className='mobile-tariffs__month'>{t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}</div>
+							<div className='mobile-tariffs__cost'>
+								<div className="selector__old-price">
+									<span>&#8364;</span>
+									<span>{tariff.six.old}</span>
+								</div>
+								<div className="selector__element">
+									<span>&#8364;</span>
+									<span>{tariff.six.new}</span>
+								</div>
 							</div>
 						</div>
+						<div className="mobile-tariffs__price">
+							<div className='mobile-tariffs__month'>{t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}</div>
+							<div className='mobile-tariffs__cost'>
+								<div className="selector__old-price">
+									<span>&#8364;</span>
+									<span>{tariff.twelve.old}</span>
+								</div>
+								<div className="selector__element">
+									<span>&#8364;</span>
+									<span>{tariff.twelve.new}</span>
+								</div>
+							</div>
 						</div>
-					</div>
-					<Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+					</div>}
+					{tariff.name === 'Individual' && <><div className="tariffs__additional">
+							{t('Не')}&nbsp;{t('нашли необходимую конфигурацию')}?
+						</div>
+						<div className="tariffs__final">
+							{t('Напишите нам, и')}&nbsp;{t('наша команда сделает индивидуальное предложение по')}&nbsp;{t('вашим запросам')}!
+						</div></>}
+					<Button className='tariffs__order-btn'>{tariff.name !== 'Individual' ? t('Оформить заказ') : t('Написать')}</Button>
 				</div>
 			</div>
 		</section>

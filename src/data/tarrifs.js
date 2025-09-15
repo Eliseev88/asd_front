@@ -96,6 +96,10 @@ export const VIRTUAL = {
 			old: '1020',
 			new: '816'
 		}
+	},
+	IND: {
+		name: 'Individual',
+		class: 'tariffs__name--ind'
 	}
 }
 
@@ -184,5 +188,9 @@ export const DEDICATED = {
 			old: '76800',
 			new: '69000'
 		}
+	},
+	IND: {
+		name: 'Individual',
+		class: 'tariffs__name--ind'
 	}
 }
