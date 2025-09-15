@@ -22,7 +22,7 @@ function Advantages() {
 					{t('Готовые решения в')}&nbsp;{t('один клик, под ваши задачи')}
 				</div>
 				<div className="advantages__text">
-					{t('Экономьте часы на')}&nbsp;{t('настройке')}: WordPress, {t('игровые серверы')}, VPN {t('и')}&nbsp;{t('другие популярные системы')}
+					{t('Экономьте часы на')}&nbsp;{t('настройке')}: WordPress, {t('игровые серверы')}, VPN {t('и')}&nbsp;{t('другие популярные системы ')}
 					<br></br><span className='advantages__text--var2'>{t('уже настроены и')}&nbsp;{t('оптимизированы')}.</span>
 				</div>
 			</div>

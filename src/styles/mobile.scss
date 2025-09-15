@@ -38,8 +38,12 @@
 .mobile-tariffs {
 	display: none;
 	margin-top: 30px;
-	overflow: auto;
-	gap: 15px;
+
+	&__scroll {
+		display: flex;
+		gap: 15px;
+		overflow-x: auto;
+	}
 
 	&__block {
 		display: none;

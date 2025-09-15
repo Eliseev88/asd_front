@@ -96,6 +96,10 @@
 		border: 1px solid $border-section-color;
 		border-radius: 16px;
 		background-color: $bg-block-color;
+
+		&.__active {
+			border-color: rgba(69, 154, 209, 0.8);
+		}
 	}
 
 	&__name {
