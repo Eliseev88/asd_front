@@ -153,7 +153,7 @@
 	}
 
 	&__price {
-		@include text(30px, #D8D9DA, 400, 0, 100%);
+		@include text(30px, #D8D9DA, 400, 0, 132%);
 	}
 
 	&__symbol {
@@ -199,7 +199,7 @@
 	&__describe {
 		margin-bottom: 15px;
 
-		@include text($title-font-size, #D8D9DA, 400, -1px, 100%);
+		@include text($title-font-size, #D8D9DA, 400, -1px, 132%);
 	}
 
 	&__additional {
@@ -281,9 +281,8 @@
 		padding: 20px;
 		transform: translateX(-11px);
 		display: none;
-		grid-template-columns: auto auto 88.5px;
+		grid-template-columns: auto;
 		grid-template-rows: repeat(4, auto);
-		column-gap: 5px;
 		row-gap: 10px;
 		background-color: #414B5D;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -293,10 +292,17 @@
 		border-bottom-right-radius: 15px;
 	}
 
-	&__element {
-		
+	&__item {
+		display: grid;
+		grid-template-columns: 56px 56px auto;
+		column-gap: 2px;
+
+		&--virtual {
+			grid-template-columns: 0.7fr 1fr 1.5fr;
+			column-gap: 11px;
+		}
+
 		&.__hover {
-			margin-left: 5px;
 			transition: color .2s linear;
 			white-space: nowrap;
 

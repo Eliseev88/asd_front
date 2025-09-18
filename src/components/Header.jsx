@@ -43,13 +43,13 @@ function Header() {
 						<a href='#advantages' className='link'>{t('Преимущества')}</a>
 					</li>
 					<li className='nav__element'>
-						<a href='#contacts' className='link'>{t('Связаться с нами')}</a>
-					</li>
-					<li className='nav__element'>
 						<a href='#tariffs' className='link'>{t('Тарифы и цены')}</a>
 					</li>
 					<li className='nav__element'>
 						<a href='#faq' className='link'>FAQ</a>
+					</li>
+					<li className='nav__element'>
+						<a href='#contacts' className='link'>{t('Связаться с нами')}</a>
 					</li>
 				</ul>
 			</nav>
@@ -70,17 +70,17 @@ function Header() {
 								</a>
 							</li>
 							<li className='nav__element'>
-								<a href='#contacts' className='link' onClick={handleLink}>
-									{t('Связаться с нами')}
-								</a>
-							</li>
-							<li className='nav__element'>
 								<a href='#tariffs' className='link' onClick={handleLink}>
 									{t('Тарифы и цены')}
 								</a>
 							</li>
 							<li className='nav__element'>
-								<a href='#faq' className='link' onClick={handleLink}>FAQ</a>
+								<a href='#faq' className='link' onClick={handleLink}>
+									FAQ
+								</a>
+							</li>
+							<li className='nav__element'>
+								<a href='#contacts' className='link' onClick={handleLink}>{t('Связаться с нами')}</a>
 							</li>
 						</ul>
 					</nav>

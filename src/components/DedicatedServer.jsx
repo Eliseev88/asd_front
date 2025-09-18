@@ -56,58 +56,66 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>400</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setGbps1({price: 400, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item __hover' onClick={() => setGbps1({price: 400, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>400</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>1200</span>
+              <div className='selector__item __hover' onClick={() => setGbps1({price: '1140', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>1200</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>1140</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps1({price: '1140', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>1140</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>2400</span>
+              <div className='selector__item __hover' onClick={() => setGbps1({price: '2160', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>2400</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>2160</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps1({price: '2160', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>2160</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>4800</span>
+              <div className='selector__item __hover' onClick={() => setGbps1({price: '3840', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>4800</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>3840</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps1({price: '3840', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>3840</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -165,58 +173,66 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>1600</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setGbps10({price: '1600', month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item __hover' onClick={() => setGbps10({price: '1600', month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>1600</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>4800</span>
+              <div className='selector__item __hover' onClick={() => setGbps10({price: '4560', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>4800</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>4560</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps10({price: '4560', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>4560</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>9600</span>
+              <div className='selector__item __hover' onClick={() => setGbps10({price: '8640', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>9600</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>8640</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps10({price: '8640', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>8640</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>19200</span>
+              <div className='selector__item __hover' onClick={() => setGbps10({price: '15360', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>19200</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>15360</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps10({price: '15360', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>15360</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -274,58 +290,66 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>3000</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setGbps25({price: '400', month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item __hover' onClick={() => setGbps25({price: '3000', month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>3000</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>9000</span>
+              <div className='selector__item __hover' onClick={() => setGbps25({price: '8550', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>9000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>8550</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps25({price: '8550', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>8550</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>18000</span>
+              <div className='selector__item __hover' onClick={() => setGbps25({price: '16200', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>18000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>16200</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps25({price: '16200', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>16200</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>36000</span>
+              <div className='selector__item __hover' onClick={() => setGbps25({price: '28800', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>36000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>28800</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps25({price: '28800', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>28800</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -384,58 +408,66 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>4000</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setGbps40({price: 4000, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item __hover' onClick={() => setGbps40({price: 4000, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>4000</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>12000</span>
+              <div className='selector__item __hover' onClick={() => setGbps40({price: '11400', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>12000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>11400</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps40({price: '11400', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>11400</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>24000</span>
+              <div className='selector__item __hover' onClick={() => setGbps40({price: '21600', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>24000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>21600</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps40({price: '21600', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>21600</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>48000</span>
+              <div className='selector__item __hover' onClick={() => setGbps40({price: '38400', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>48000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>38400</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps40({price: '38400', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>38400</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -493,58 +525,66 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>8000</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setGbps100({price: '8000', month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item __hover' onClick={() => setGbps100({price: '8000', month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>8000</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>24000</span>
+              <div className='selector__item __hover' onClick={() => setGbps100({price: '22800', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>24000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>22800</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps100({price: '22800', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>22800</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>48000</span>
+              <div className='selector__item __hover' onClick={() => setGbps100({price: '43200', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>48000</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>43200</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps100({price: '43200', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>43200</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>76800</span>
+              <div className='selector__item __hover' onClick={() => setGbps100({price: '69000', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>76800</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>69000</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setGbps100({price: '69000', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>69000</span>
+                </div>
+                <div className="selector__element ">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>

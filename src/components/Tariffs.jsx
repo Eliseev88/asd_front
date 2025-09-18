@@ -73,69 +73,6 @@ function Tariffs() {
 					</div>
 				</div>
 			</div>
-			{/* <div className="mobile-tariffs">
-				{server === 'virtual' ? <VirtualServer /> : <DedicatedServer />}
-				<div>
-					<div className={["tariffs__element __mobile", server === 'virtual' ? '__height' : '__height2'].join(' ')}>
-						<div className="tariffs__name tariffs__name--ind">Individual</div>
-						<div className='tariffs__describe'>{t('По запросу')}</div>
-						{server === 'virtual' && <div className='tariffs__info'>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-						</div>}
-						{server === 'dedicated' && <div className='tariffs__info'>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-						</div>}
-					</div>
-					<div className="mobile-tariffs__wrp __height">
-						<div className='mobile-tariffs__name'>{t('Тариф')} <span className='tariffs__name--ind'>Individual</span></div>
-						<div className="tariffs__additional">
-							{t('Не')}&nbsp;{t('нашли необходимую конфигурацию')}?
-						</div>
-						<div className="tariffs__final">
-							{t('Напишите нам, и')}&nbsp;{t('наша команда сделает индивидуальное предложение по')}&nbsp;{t('вашим запросам')}!
-						</div>
-						<Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
-					</div>
-				</div>
-			</div> */}
 			<div className="mobile-tariffs">
 				{server === 'virtual' && <div className='mobile-tariffs__scroll'>
 					<div className={["tariffs__element __mobile", tariff.name === 'DE1' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE1')}>

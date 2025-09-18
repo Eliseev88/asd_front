@@ -56,58 +56,66 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>6</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setDe1({price: 6, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: 6, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>6</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>18</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: '17,1', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>18</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>17,1</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe1({price: '17,1', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>17,1</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>36</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: '32,4', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>36</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>32,4</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe1({price: '32,4', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>32,4</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>72</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: '57,6', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>72</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>57,6</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe1({price: '57,6', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>57,6</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -157,58 +165,66 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>11</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setDe2({price: 11, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: 11, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>11</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>33</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: '31,3', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>33</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>31,3</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe2({price: '31,3', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>31,3</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>66</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: '59,4', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>66</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>59,4</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe2({price: '59,4', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>59,4</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>132</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: '105,6', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>132</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>105,6</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe2({price: '105,6', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>105,6</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -258,58 +274,66 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>21</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setDe3({price: 21, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: 21, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>21</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>63</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: '59,8', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>63</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>59,8</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe3({price: '59,8', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>59,8</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>126</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: '113,4', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>126</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>113,4</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe3({price: '113,4', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>113,4</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>252</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: '201,6', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>252</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>201,6</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe3({price: '201,6', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>201,6</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -359,58 +383,66 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>43</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setDe4({price: 6, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: 6, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>43</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>129</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: '122,5', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>129</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>122,5</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe4({price: '122,5', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>122,5</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>258</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: '232,2', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>258</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>232,2</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe4({price: '232,2', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>232,2</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>516</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: '412,8', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>516</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>412,8</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe4({price: '412,8', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>412,8</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
@@ -460,58 +492,66 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>85</span>
-              </div>
-              <div className="selector__element"></div>
-              <div className="selector__element __hover" onClick={() => setDe5({price: 6, month: 1})}>
-                {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: 6, month: 1})}>
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>85</span>
+                </div>
+                <div className="selector__element"></div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 2-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>255</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: '242,2', month: 3})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>255</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>242,2</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe5({price: '242,2', month: 3})}>
-                {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>242,2</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 3-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>510</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: '459', month: 6})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>510</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>459</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe5({price: '459', month: 6})}>
-                {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>459</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
 
               {/* 4-ROW */}
-              <div className="selector__element">
-                <div className="selector__old-price">
-                  <span>&#8364;</span>
-                  <span>1020</span>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: '816', month: 12})}>
+                <div className="selector__element">
+                  <div className="selector__old-price">
+                    <span>&#8364;</span>
+                    <span>1020</span>
+                  </div>
                 </div>
-              </div>
-              <div className="selector__element">
-                <span>&#8364;</span>
-                <span>816</span>
-              </div>
-              <div className="selector__element __hover" onClick={() => setDe5({price: '816', month: 12})}>
-                {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                <div className="selector__element">
+                  <span>&#8364;</span>
+                  <span>816</span>
+                </div>
+                <div className="selector__element">
+                  {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
+                </div>
               </div>
             </div>
           </div>
