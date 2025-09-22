@@ -91,6 +91,16 @@
 		}
 	}
 
+	&__status {
+		margin: 15px 0;
+
+		@include text($sub-font-size, #22bb33);
+
+		&.__error {
+			color: #bb2124;
+		}
+	}
+
 	&__tg,
 	&__mail {
 		width: 33px;

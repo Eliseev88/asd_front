@@ -28,11 +28,11 @@
 
   &:disabled {
     color: rgba($color: #FFFF, $alpha: 0.5);
+    pointer-events: none;
 
     &:hover {
       color: rgba($color: #FFFF, $alpha: 0.5);
       background-color: $bg-btn-color;
-      pointer-events: none;
     }
   }
 

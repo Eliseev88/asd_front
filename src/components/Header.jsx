@@ -21,6 +21,10 @@ function Header() {
 		setIsOpenMenu(false);
 	}
 
+	const goToVM = () => {
+		window.open('https://vm.asdhere.net', '_blank');
+	}
+
 	useEffect(() => {
 		const CONTENT = document.getElementById('content');
 		const OVERLAY = document.getElementById('overlay');
@@ -53,7 +57,7 @@ function Header() {
 					</li>
 				</ul>
 			</nav>
-			<Button className='header__btn'>{t('Личный кабинет')}</Button>
+			<Button className='header__btn'role="link" onClick={goToVM}>{t('Личный кабинет')}</Button>
 
 			<LangSwitcher className='__hidden'/>
 
@@ -86,7 +90,7 @@ function Header() {
 					</nav>
 					<div className='__hr' />
 					<div className='nav__element'>
-						<a href='' className='link' onClick={handleLink}>
+						<a href='' className='link' onClick={goToVM}>
 							{t('Личный кабинет')}
 						</a>
 					</div>

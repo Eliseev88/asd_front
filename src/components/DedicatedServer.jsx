@@ -31,6 +31,10 @@ function DedicatedServer() {
     price: 8000
   });
 
+  const goToVM = () => {
+		window.open('https://vm.asdhere.net', '_blank');
+	}
+
 	const changeVisibility = (e, tariffName) => {
 		e.stopPropagation();
 		changeTariffCollapse({...TARIFF_OBJ, [tariffName]: !tariffObject[tariffName]});
@@ -121,9 +125,9 @@ function DedicatedServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;320&nbsp;{t('в месяц при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;320&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -238,9 +242,9 @@ function DedicatedServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;1280&nbsp;{t('в месяц при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;1280&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -355,9 +359,9 @@ function DedicatedServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;2400&nbsp;{t('в месяц при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;2400&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -473,9 +477,9 @@ function DedicatedServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;3200&nbsp;{t('в месяц при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;3200&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -590,9 +594,9 @@ function DedicatedServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;6400&nbsp;{t('в месяц при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;6400&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn'>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
