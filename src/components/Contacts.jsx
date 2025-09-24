@@ -120,11 +120,12 @@ function Contacts() {
             placeholder={t("Ваш вопрос")}
           />
           <ReCAPTCHA
-            sitekey="6LfTkNErAAAAAJXZpR9Mxe8o9L5kgFD7zCMiPo3S"
+            size={window.screen.width <= 704 ? 'compact' : 'normal'}
+            sitekey="6Ldq9tErAAAAAONaIAWNe0L1pP9NYj47DgBUG_tT"
             theme="light"
             onChange={onChangeCaptcha}
           />
-          <Button type="submit" className="contacts__submit" >
+          <Button type="submit" className="contacts__submit" disabled={!captcha}>
             {isLoading ? <BeatLoader color="#FFF" /> : t("Отправить")}
           </Button>
         </form>
@@ -145,8 +146,8 @@ function Contacts() {
             <span>@asdhere</span>
           </div>
           <div className="contacts__element">
-            <a className="contacts__mail" href="mailto:support@asdhere.net" />
-            <span>support@asdhere.net</span>
+            <a className="contacts__mail" href="mailto:supp@asdhere.net" />
+            <span>supp@asdhere.net</span>
           </div>
         </div>
       </div>
