@@ -27,6 +27,39 @@ function Tariffs() {
 		setServer(serverType);
 	}
 
+	const handleClick = () => {
+		const element = document.getElementById("contacts");
+		const startPosition = window.scrollY;
+		const targetPosition = element.getBoundingClientRect().top + window.scrollY - 75;
+		const distance = targetPosition - startPosition;
+		let startTime = null;
+
+		function animation(currentTime) {
+			if (startTime === null) startTime = currentTime;
+
+			const timeElapsed = currentTime - startTime;
+			const run = easeInOutQuad(timeElapsed, startPosition, distance, 200);
+
+			window.scrollTo(0, run);
+
+			if (timeElapsed < 200) {
+				requestAnimationFrame(animation);
+			}
+		}
+
+		function easeInOutQuad(t, b, c, d) {
+			t /= d / 2;
+
+			if (t < 1) return (c / 2) * t * t + b;
+
+			t--;
+
+			return (-c / 2) * (t * (t - 2) - 1) + b;
+		}
+
+		requestAnimationFrame(animation);
+	};
+
 	useEffect(() => {
 		setTariff(server === 'virtual' ? VIRTUAL.DE1 : DEDICATED.Gbps1);
 	}, [server]);
@@ -67,7 +100,7 @@ function Tariffs() {
 					<div className="tariffs__additional">
 						{t('Не')}&nbsp;{t('нашли необходимую конфигурацию')}?
 					</div>
-					<Button className="tariffs__custom-btn">{t('Написать')}</Button>
+					<Button className="tariffs__custom-btn" onClick={handleClick}>{t('Написать')}</Button>
 					<div className="tariffs__final">
 						{t('Напишите нам, и')}&nbsp;{t('наша команда сделает индивидуальное предложение по')}&nbsp;{t('вашим запросам')}!
 					</div>
@@ -478,7 +511,9 @@ function Tariffs() {
 						<div className="tariffs__final">
 							{t('Напишите нам, и')}&nbsp;{t('наша команда сделает индивидуальное предложение по')}&nbsp;{t('вашим запросам')}!
 						</div></>}
-					<Button className='tariffs__order-btn'>{tariff.name !== 'Individual' ? t('Оформить заказ') : t('Написать')}</Button>
+					<Button className='tariffs__order-btn' onClick={tariff.name === 'Individual' ? handleClick : null}>
+						{tariff.name !== 'Individual' ? t('Оформить заказ') : t('Написать')}
+					</Button>
 				</div>
 			</div>
 		</section>

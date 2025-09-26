@@ -15,9 +15,12 @@ function Intro() {
 
     function animation(currentTime) {
       if (startTime === null) startTime = currentTime;
+
       const timeElapsed = currentTime - startTime;
       const run = easeInOutQuad(timeElapsed, startPosition, distance, 200);
+
       window.scrollTo(0, run);
+
       if (timeElapsed < 200) {
         requestAnimationFrame(animation);
       }
@@ -25,8 +28,11 @@ function Intro() {
 
     function easeInOutQuad(t, b, c, d) {
       t /= d / 2;
+
       if (t < 1) return (c / 2) * t * t + b;
+
       t--;
+
       return (-c / 2) * (t * (t - 2) - 1) + b;
     }
 

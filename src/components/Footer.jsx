@@ -6,7 +6,7 @@ function Footer() {
   const {t} = useTranslation();
   return (
 	<footer className="footer">
-    <div className="wrapper">
+    <div className="footer__wrapper">
       <div className="footer__wrp">
         <div>
           <img src={LOGO} alt="logo" className="footer__logo" />

@@ -1,10 +1,16 @@
 .footer {
-	flex: 0 0 auto;
 	margin-top: 60px;
 	height: 220px;
 	border-top: 1px solid rgba(255, 255, 255, 0.06);
 	background-color: rgba(31, 36, 42, 0.3);
 	padding: 41px 0;
+
+	&__wrapper {
+		max-width: $content-width;
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+	}
 
 	&__wrp {
 		display: flex;

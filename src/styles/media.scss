@@ -1,11 +1,15 @@
 @media (max-width: 1220px) {
 	html {
-		scroll-behavior: unset;
+		scroll-behavior: auto;
 	}
 
 	.wrapper,
-	.footer-wrapper {
+	.footer__wrapper {
 		max-width: $content-width;
+	}
+
+	.wrapper {
+		padding-top: 790px;;
 	}
 
 	.langSwitcher__btn {
@@ -68,16 +72,13 @@
 			transform: unset;
 		}
 	}
-
-	.advantages {
-		margin-top: 790px;
-	}
 }
 
 @media (max-width: 1006px) {
 	.wrapper,
-	.footer-wrapper {
-		padding: 0 25px;
+	.footer__wrapper {
+		padding-left: 25px;
+		padding-right: 25px;
 	}
 
 	.header__wrp {
@@ -121,6 +122,10 @@
 }
 
 @media (max-width: 649px) {
+	.wrapper {
+		padding-top: 688px;
+	}
+
 	.header__logo{
 		width: 128px;
 	}
@@ -166,8 +171,6 @@
 	}
 
 	.advantages {
-		margin-top: 688px;
-
 		&__wrp {
 			grid-template-columns: 1fr;
 		}
