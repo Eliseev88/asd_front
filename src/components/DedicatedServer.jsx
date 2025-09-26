@@ -60,7 +60,7 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item __hover' onClick={() => setGbps1({price: 400, month: 1})}>
+              <div className='selector__item __hover' onClick={() => setGbps1({price: '400', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>400</span>
@@ -412,7 +412,7 @@ function DedicatedServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item __hover' onClick={() => setGbps40({price: 4000, month: 1})}>
+              <div className='selector__item __hover' onClick={() => setGbps40({price: '4000', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>4000</span>

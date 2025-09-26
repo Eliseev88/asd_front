@@ -9,8 +9,7 @@ function Intro() {
   const handleClick = () => {
     const element = document.getElementById("tariffs");
     const startPosition = window.scrollY;
-    const targetPosition =
-      element.getBoundingClientRect().top + window.scrollY - 75;
+    const targetPosition = element.getBoundingClientRect().top + window.scrollY - 75;
     const distance = targetPosition - startPosition;
     let startTime = null;
 

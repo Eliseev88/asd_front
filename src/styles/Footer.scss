@@ -10,11 +10,6 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 100px;
-
-		& img {
-			display: block;
-			margin-bottom: 20px;
-		}
 	}
 
 	&__text {
@@ -47,5 +42,12 @@
 		&:hover {
 			color: $hover-text-color;
 		}
+	}
+
+	&__logo {
+		display: block;
+		margin-bottom: 20px;
+		width: 204px;
+		height: 34px;
 	}
 }

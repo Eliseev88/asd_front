@@ -61,7 +61,7 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: 6, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: '6', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>6</span>
@@ -170,7 +170,7 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: 11, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: '11', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>11</span>
@@ -279,7 +279,7 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: 21, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: '21', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>21</span>
@@ -388,7 +388,7 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: 6, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: '43', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>43</span>
@@ -497,7 +497,7 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: 6, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: '85', month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
                   <span>85</span>

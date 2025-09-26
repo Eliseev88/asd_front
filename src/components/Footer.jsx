@@ -9,7 +9,7 @@ function Footer() {
     <div className="wrapper">
       <div className="footer__wrp">
         <div>
-          <img src={LOGO} alt="logo" />
+          <img src={LOGO} alt="logo" className="footer__logo" />
           <div className="footer__text">
             {t('Хостинг-решения для проектов любой сложности')}.
             <br></br>
@@ -21,7 +21,7 @@ function Footer() {
             {t('Контакты')}
           </div>
           <div className='footer__text __margin'>@asdhere</div>
-          <div className='footer__text'>support@asdhere.net</div>
+          <div className='footer__text'>supp@asdhere.net</div>
         </div>
         <div className="footer__column item-b">
           <div className="footer__title">
