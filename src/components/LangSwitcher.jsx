@@ -9,10 +9,18 @@ function LangSwitcher({className}) {
 
 	const {i18n} = useTranslation();
 
-	let _currentLang = localStorage.getItem('LANG');
+	let _currentLang = localStorage.getItem('i18nextLng');
+	let _userLanguage = window.navigator.language;
 
-	if (!_currentLang) {
-		_currentLang = 'RU';
+	if (_currentLang === 'ru-RU' || _currentLang === 'en-EN') {
+		if (_userLanguage && _userLanguage !== 'ru-RU') {
+			_currentLang = 'EN';
+			i18n.changeLanguage(_currentLang.toLowerCase());
+		} else {
+			_currentLang = 'RU';
+		}
+	} else {
+		_currentLang = _currentLang.toUpperCase();
 	}
 
 	const [currentLang, setCurrentLang] = useState(_currentLang);
@@ -42,7 +50,6 @@ function LangSwitcher({className}) {
 
 		i18n.changeLanguage(currentLang === 'RU' ? 'en' : 'ru');
 
-		localStorage.setItem('LANG', lang);
 		toggleCollapse(!isCollapsed);
 	}
 
