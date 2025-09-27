@@ -1,17 +1,17 @@
 #content {
-	//width: 100%;
+	width: 100%;
 }
 
 .content {
-	// display: flex;
-	// flex-direction: column;
-	// height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .wrapper {
+	flex: 1 0 auto;
 	padding-top: 901px;
 	max-width: $content-width;
-	//width: 100%;
 	margin: 0 auto;
 	position: relative;
 }

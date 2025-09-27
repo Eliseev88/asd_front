@@ -34,17 +34,17 @@ function Content() {
 
   return (
     <div id="content">
-    <div className="content">
-      <div id="overlay" className="overlay"></div>
-      <div className="wrapper">
-        <Background />
-        <Advantages />
-        <Tariffs />
-        <FAQ />
-        <Contacts />
+      <div className="content">
+        <div id="overlay" className="overlay"></div>
+        <div className="wrapper">
+          <Background />
+          <Advantages />
+          <Tariffs />
+          <FAQ />
+          <Contacts />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </div>
   );
 }
