@@ -22,8 +22,8 @@
 	&__wrp {
 		display: grid;
 		gap: 30px;
-		grid-template-columns: 423px 423px;
-		grid-template-rows: auto auto;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
 	}
 
 	&__block {

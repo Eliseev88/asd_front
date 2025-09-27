@@ -89,10 +89,6 @@
 		padding: 0 25px;
 	}
 
-	.advantages__wrp {
-		grid-template-columns: 1fr 1fr;
-	}
-
 	.tariffs__wrp {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -111,6 +107,12 @@
 	}
 }
 
+@media (max-width: 889px) {
+	.wrapper {
+		padding-top: 860px;
+	}
+}
+
 @media (max-width: 704px) {
 	.tariffs__wrp {
 		display: flex;
@@ -121,9 +123,15 @@
 	}
 }
 
+@media (max-width: 679px) {
+	.wrapper {
+		padding-top: 928px;
+	}
+}
+
 @media (max-width: 649px) {
 	.wrapper {
-		padding-top: 688px;
+		padding-top: 720px;
 	}
 
 	.header__logo{

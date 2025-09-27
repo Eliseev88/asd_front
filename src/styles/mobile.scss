@@ -4,7 +4,7 @@
 	&.__open {
 		display: block;
 		width: 75%;
-		height: 100vh;
+		height: 100dvh;
 		background-color: #242831;
 		margin-left: 25%;
 		transform: translateY(-76px);
@@ -100,10 +100,6 @@
 	background-color: transparent;
 	background-repeat: no-repeat;
 	cursor: pointer;
-
-	&.__open {
-		// visibility: hidden;
-	}
 }
 .cross {
 	display: block;
