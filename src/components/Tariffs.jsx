@@ -6,7 +6,7 @@ import '../styles/Tariffs.scss';
 import VirtualServer from './VirtualServer';
 import DedicatedServer from './DedicatedServer';
 import { declension } from '../utils/declension';
-import { VIRTUAL, DEDICATED } from '../data/tarrifs';
+import { VIRTUAL, DEDICATED, TARIFF_LINKS } from '../data/tarrifs';
 
 function Tariffs() {
 	const {t} = useTranslation();
@@ -25,6 +25,12 @@ function Tariffs() {
 	const changeServer = (serverType) => {
 		if (serverType === server) return;
 		setServer(serverType);
+	}
+
+	const handleClickTariff = () => {
+		if (server === 'dedicated') return handleClick();
+
+		window.open(TARIFF_LINKS[tariff.name + '_12'], '_blank');
 	}
 
 	const handleClick = () => {
@@ -88,7 +94,7 @@ function Tariffs() {
 					{t('Выделенные серверы')}
 				</button>
 			</div>
-			<Button className='tariffs__country-btn'>
+			<Button className='tariffs__country-btn' disabled>
 				<img src={GE} alt="flag" />
 				{t('Германия, Франкфурт (HI-CPU)')}
 			</Button>
@@ -511,8 +517,8 @@ function Tariffs() {
 						<div className="tariffs__final">
 							{t('Напишите нам, и')}&nbsp;{t('наша команда сделает индивидуальное предложение по')}&nbsp;{t('вашим запросам')}!
 						</div></>}
-					<Button className='tariffs__order-btn' onClick={tariff.name === 'Individual' ? handleClick : null}>
-						{tariff.name !== 'Individual' ? t('Оформить заказ') : t('Написать')}
+					<Button className='tariffs__order-btn' onClick={tariff.name === 'Individual' ? handleClick : handleClickTariff}>
+						{tariff.name === 'Individual' ? t('Написать') : t('Оформить заказ')}
 					</Button>
 				</div>
 			</div>

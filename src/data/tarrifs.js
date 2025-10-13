@@ -194,3 +194,30 @@ export const DEDICATED = {
 		class: 'tariffs__name--ind'
 	}
 }
+
+export const TARIFF_LINKS = {
+	DE1_1: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D12%26period%3D1%26project%3D2',
+	DE1_3: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D12%26period%3D3%26project%3D2',
+	DE1_6: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D12%26period%3D6%26project%3D2',
+	DE1_12: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D12%26period%3D12%26project%3D2',
+
+	DE2_1: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D22%26period%3D1%26project%3D2',
+	DE2_3: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D22%26period%3D3%26project%3D2',
+	DE2_6: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D22%26period%3D6%26project%3D2',
+	DE2_12: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D22%26period%3D12%26project%3D2',
+
+	DE3_1: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D27%26period%3D1%26project%3D2',
+	DE3_3: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D27%26period%3D3%26project%3D2',
+	DE3_6: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D27%26period%3D6%26project%3D2',
+	DE3_12: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D27%26period%3D12%26project%3D2',
+
+	DE4_1: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D32%26period%3D1%26project%3D2',
+	DE4_3: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D32%26period%3D3%26project%3D2',
+	DE4_6: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D32%26period%3D6%26project%3D2',
+	DE4_12: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D32%26period%3D12%26project%3D2',
+
+	DE5_1: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D37%26period%3D1%26project%3D2',
+	DE5_3: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D37%26period%3D3%26project%3D2',
+	DE5_6: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D37%26period%3D6%26project%3D2',
+	DE5_12: 'https://my.asdhere.net?func=register&redirect=startpage%3Dvds%26startform%3Dvds%252Eorder%252Eparam%26pricelist%3D37%26period%3D12%26project%3D2',
+}

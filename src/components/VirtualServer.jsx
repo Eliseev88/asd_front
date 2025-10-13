@@ -1,5 +1,5 @@
 import { TariffContext } from '../providers/TariffContext';
-import { TARIFF_OBJ } from '../data/tarrifs';
+import { TARIFF_OBJ, TARIFF_LINKS } from '../data/tarrifs';
 import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { declension } from '../utils/declension';
@@ -31,10 +31,6 @@ function VirtualServer() {
     month: 1,
     price: 85
   });
-
-  const goToVM = () => {
-		window.open('https://vm.asdhere.net', '_blank');
-	}
 
 	const changeVisibility = (e, tariffName) => {
 		e.stopPropagation();
@@ -128,7 +124,7 @@ function VirtualServer() {
         <div className='tariffs__discount'>
           &#8364;&nbsp;4,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE1_' + de1.month], '_blank')}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -237,7 +233,7 @@ function VirtualServer() {
         <div className='tariffs__discount'>
           &#8364;&nbsp;8,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE2_' + de2.month], '_blank')}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -346,7 +342,7 @@ function VirtualServer() {
         <div className='tariffs__discount'>
           &#8364;&nbsp;16,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE3_' + de3.month], '_blank')}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -455,7 +451,7 @@ function VirtualServer() {
         <div className='tariffs__discount'>
           &#8364;&nbsp;34,4&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE4_' + de4.month], '_blank')}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
@@ -564,7 +560,7 @@ function VirtualServer() {
         <div className='tariffs__discount'>
           &#8364;&nbsp;68&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={goToVM}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE5_' + de5.month], '_blank')}>{t('Оформить заказ')}</Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>

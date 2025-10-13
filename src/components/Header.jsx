@@ -22,7 +22,7 @@ function Header() {
   };
 
   const goToVM = () => {
-    window.open("https://vm.asdhere.net", "_blank");
+    window.open("https://my.asdhere.net", "_blank");
   };
 
   useEffect(() => {
@@ -118,7 +118,7 @@ function Header() {
           </nav>
           <div className="__hr" />
           <div className="nav__element">
-            <a href="https://vm.asdhere.net" target="_blank" className="link">
+            <a href="https://my.asdhere.net" target="_blank" className="link">
               {t("Личный кабинет")}
             </a>
           </div>
