@@ -27,9 +27,9 @@ function Footer() {
           <div className="footer__title">
             {t('Информация')}
           </div>
-          <a href="" className="footer__link __margin">{t('Политика конфиденциальности')}</a>
+          <a href="https://asdhere.net/Policy.pdf" target='_blank' className="footer__link __margin">{t('Политика конфиденциальности')}</a>
           <br></br>
-          <a href="" className="footer__link">{t('Условия обслуживания')}</a>
+          <a href="https://asdhere.net/Condition.pdf" target='_blank' className="footer__link">{t('Условия обслуживания')}</a>
         </div>
       </div>
     </div>
