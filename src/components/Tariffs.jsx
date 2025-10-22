@@ -117,7 +117,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === 'DE1' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE1')}>
 						<div className="tariffs__name tariffs__name--var1">DE1</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;4,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{VIRTUAL.DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -142,7 +142,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === 'DE2' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE2')}>
 						<div className="tariffs__name tariffs__name--var2">DE2</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;8,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{VIRTUAL.DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -167,7 +167,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === 'DE3' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE3')}>
 						<div className="tariffs__name tariffs__name--var3">DE3</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;16,8&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{VIRTUAL.DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -192,7 +192,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === 'DE4' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE4')}>
 						<div className="tariffs__name tariffs__name--var4">DE4</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;34,4&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{VIRTUAL.DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -217,7 +217,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === 'DE5' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE5')}>
 						<div className="tariffs__name tariffs__name--var5">DE5</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;68&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{VIRTUAL.DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -266,7 +266,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === '1 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps1')}>
 						<div className="tariffs__name tariffs__name--var1">1 Gbps</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;320&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{DEDICATED.Gbps1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -299,7 +299,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === '10 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps10')}>
 						<div className="tariffs__name tariffs__name--var2">10 Gbps</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;1280&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{DEDICATED.Gbps10.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -332,7 +332,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === '25 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps25')}>
 						<div className="tariffs__name tariffs__name--var3">25 Gbps</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;2400&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{DEDICATED.Gbps25.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -365,7 +365,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === '40 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps40')}>
 						<div className="tariffs__name tariffs__name--var4">40 Gbps</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;3200&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{DEDICATED.Gbps40.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -398,7 +398,7 @@ function Tariffs() {
 					<div className={["tariffs__element __mobile", tariff.name === '100 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps100')}>
 						<div className="tariffs__name tariffs__name--var5">100 Gbps</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;6400&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{DEDICATED.Gbps100.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">

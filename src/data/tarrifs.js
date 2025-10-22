@@ -15,87 +15,92 @@ export const VIRTUAL = {
 	DE1: {
 		name: 'DE1',
 		class: 'tariffs__name--var1',
-		one: '6',
+		one: '4',
 		three: {
-			old: '18',
-			new: '17,1'
+			old: '12',
+			new: '11,4'
 		},
 		six: {
-			old: '36',
-			new: '32,4'
+			old: '24',
+			new: '21,6'
 		},
 		twelve: {
-			old: '72',
-			new: '57,5'
-		}
+			old: '48',
+			new: '38,4'
+		},
+		discount: '3,2'
 	},
 	DE2: {
 		name: 'DE2',
 		class: 'tariffs__name--var2',
-		one: '11',
+		one: '8',
 		three: {
-			old: '33',
-			new: '31,3'
+			old: '24',
+			new: '22,8'
 		},
 		six: {
-			old: '66',
-			new: '59,4'
+			old: '48',
+			new: '43,2'
 		},
 		twelve: {
-			old: '132',
-			new: '105,6'
-		}
+			old: '96',
+			new: '76,8'
+		},
+		discount: '6,4'
 	},
 	DE3: {
 		name: 'DE3',
 		class: 'tariffs__name--var3',
-		one: '21',
+		one: '16',
 		three: {
-			old: '63',
-			new: '59,8'
+			old: '48',
+			new: '45,6'
 		},
 		six: {
-			old: '126',
-			new: '113,4'
+			old: '96',
+			new: '86,4'
 		},
 		twelve: {
-			old: '252',
-			new: '201,6'
-		}
+			old: '192',
+			new: '153,6'
+		},
+		discount: '12,8'
 	},
 	DE4: {
 		name: 'DE4',
 		class: 'tariffs__name--var4',
-		one: '43',
+		one: '32',
 		three: {
-			old: '129',
-			new: '122,5'
+			old: '96',
+			new: '91,2'
 		},
 		six: {
-			old: '258',
-			new: '232,2'
+			old: '192',
+			new: '172,8'
 		},
 		twelve: {
-			old: '516',
-			new: '412,8'
-		}
+			old: '384',
+			new: '307,2'
+		},
+		discount: '25,6'
 	},
 	DE5: {
 		name: 'DE5',
 		class: 'tariffs__name--var5',
-		one: '85',
+		one: '64',
 		three: {
-			old: '255',
-			new: '242,2'
+			old: '192',
+			new: '182,4'
 		},
 		six: {
-			old: '510',
-			new: '459'
+			old: '384',
+			new: '345,6'
 		},
 		twelve: {
-			old: '1020',
-			new: '816'
-		}
+			old: '768',
+			new: '614,4'
+		},
+		discount: '51,2'
 	},
 	IND: {
 		name: 'Individual',
@@ -107,87 +112,92 @@ export const DEDICATED = {
 	Gbps1: {
 		name: '1 Gbps',
 		class: 'tariffs__name--var1',
-		one: '400',
+		one: '500',
 		three: {
-			old: '1200',
-			new: '1140'
+			old: '1500',
+			new: '1425'
 		},
 		six: {
-			old: '2400',
-			new: '2160'
+			old: '3000',
+			new: '2700'
 		},
 		twelve: {
-			old: '4800',
-			new: '3840'
-		}
+			old: '6000',
+			new: '4800'
+		},
+		discount: '400'
 	},
 	Gbps10: {
 		name: '10 Gbps',
 		class: 'tariffs__name--var2',
-		one: '1600',
+		one: '2000',
 		three: {
-			old: '4800',
-			new: '4560'
+			old: '6000',
+			new: '5700'
 		},
 		six: {
-			old: '9600',
-			new: '8640'
+			old: '12000',
+			new: '10800'
 		},
 		twelve: {
-			old: '19200',
-			new: '15360'
-		}
+			old: '24000',
+			new: '19200'
+		},
+		discount: '1600'
 	},
 	Gbps25: {
 		name: '25 Gbps',
 		class: 'tariffs__name--var3',
-		one: '3000',
+		one: '3750',
 		three: {
-			old: '9000',
-			new: '8550'
+			old: '11250',
+			new: '10687'
 		},
 		six: {
-			old: '18000',
-			new: '16200'
+			old: '22500',
+			new: '20250'
 		},
 		twelve: {
-			old: '36000',
-			new: '28800'
-		}
+			old: '45000',
+			new: '36000'
+		},
+		discount: '3000'
 	},
 	Gbps40: {
 		name: '40 Gbps',
 		class: 'tariffs__name--var4',
-		one: '4000',
+		one: '5000',
 		three: {
-			old: '12000',
-			new: '11400'
+			old: '15000',
+			new: '14250'
 		},
 		six: {
-			old: '24000',
-			new: '21600'
+			old: '30000',
+			new: '27000'
 		},
 		twelve: {
-			old: '48000',
-			new: '38400'
-		}
+			old: '60000',
+			new: '48000'
+		},
+		discount: '4000'
 	},
 	Gbps100: {
 		name: '100 Gbps',
 		class: 'tariffs__name--var5',
-		one: '8000',
+		one: '10000',
 		three: {
-			old: '24000',
-			new: '22800'
+			old: '30000',
+			new: '28500'
 		},
 		six: {
-			old: '48000',
-			new: '43200'
+			old: '60000',
+			new: '54000'
 		},
 		twelve: {
-			old: '76800',
-			new: '69000'
-		}
+			old: '120000',
+			new: '96000'
+		},
+		discount: '8000'
 	},
 	IND: {
 		name: 'Individual',
