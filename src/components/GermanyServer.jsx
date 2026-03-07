@@ -1,35 +1,37 @@
 import { TariffContext } from '../providers/TariffContext';
-import { TARIFF_OBJ, VIRTUAL, TARIFF_LINKS } from '../data/tarrifs';
+import { TARIFF_OBJ, GERMANY, TARIFF_LINKS } from '../data/tarrifs';
 import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { declension } from '../utils/declension';
 import Button from './Button';
 
-function VirtualServer() {
+function VirtualServer({amd}) {
 
 	const {t} = useTranslation();
 
 	const { tariffObject, changeTariffCollapse } = useContext(TariffContext);
 
+  const server = amd === 'EPYC' ? GERMANY.EPYC : GERMANY.Ryzen;
+
   const [ de1, setDe1 ] = useState({
     month: 1,
-    price: VIRTUAL.DE1.one
+    price: server.DE1.one
   });
   const [ de2, setDe2 ] = useState({
     month: 1,
-    price: VIRTUAL.DE2.one
+    price: server.DE2.one
   });
   const [ de3, setDe3 ] = useState({
     month: 1,
-    price: VIRTUAL.DE3.one
+    price: server.DE3.one
   });
   const [ de4, setDe4 ] = useState({
     month: 1,
-    price: VIRTUAL.DE4.one
+    price: server.DE4.one
   });
   const [ de5, setDe5 ] = useState({
     month: 1,
-    price: VIRTUAL.DE5.one
+    price: server.DE5.one
   });
 
 	const changeVisibility = (e, tariffName) => {
@@ -40,7 +42,7 @@ function VirtualServer() {
     <>
       {/* DE1 */}
       <div className="tariffs__element">
-        <div className="tariffs__name tariffs__name--var1">DE1</div>
+        <div className="tariffs__name tariffs__name--var1">{server.DE1.name}</div>
         <div className="tariffs__display">
           <div className="tariffs__price">
             <span className="tariffs__symbol">&#8364;</span>
@@ -57,10 +59,10 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: VIRTUAL.DE1.one, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: server.DE1.one, month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE1.one}</span>
+                  <span>{server.DE1.one}</span>
                 </div>
                 <div className="selector__element"></div>
                 <div className="selector__element">
@@ -69,16 +71,16 @@ function VirtualServer() {
               </div>
 
               {/* 2-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: VIRTUAL.DE1.three.new, month: 3})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: server.DE1.three.new, month: 3})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE1.three.old}</span>
+                    <span>{server.DE1.three.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE1.three.new}</span>
+                  <span>{server.DE1.three.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
@@ -86,16 +88,16 @@ function VirtualServer() {
               </div>
 
               {/* 3-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: VIRTUAL.DE1.six.new, month: 6})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: server.DE1.six.new, month: 6})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE1.six.old}</span>
+                    <span>{server.DE1.six.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE1.six.new}</span>
+                  <span>{server.DE1.six.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
@@ -103,16 +105,16 @@ function VirtualServer() {
               </div>
 
               {/* 4-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: VIRTUAL.DE1.twelve.new, month: 12})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe1({price: server.DE1.twelve.new, month: 12})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE1.twelve.old}</span>
+                    <span>{server.DE1.twelve.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE1.twelve.new}</span>
+                  <span>{server.DE1.twelve.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
@@ -122,13 +124,15 @@ function VirtualServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;{VIRTUAL.DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;{server.DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE1_' + de1.month], '_blank')}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-1_' + de1.month : '[DE] RX-1_' + de1.month], '_blank')}>
+          {t('Оформить заказ')}
+        </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">AMD Ryzen9 9950X 5.7GHz</div>
+            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">1&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -149,7 +153,7 @@ function VirtualServer() {
 
       {/* DE2 */}
       <div className="tariffs__element">
-        <div className="tariffs__name tariffs__name--var2">DE2</div>
+        <div className="tariffs__name tariffs__name--var2">{server.DE2.name}</div>
         <div className="tariffs__display">
           <div className="tariffs__price">
             <span className="tariffs__symbol">&#8364;</span>
@@ -166,10 +170,10 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: VIRTUAL.DE2.one, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: server.DE2.one, month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE2.one}</span>
+                  <span>{server.DE2.one}</span>
                 </div>
                 <div className="selector__element"></div>
                 <div className="selector__element">
@@ -178,16 +182,16 @@ function VirtualServer() {
               </div>
 
               {/* 2-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: VIRTUAL.DE2.three.new, month: 3})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: server.DE2.three.new, month: 3})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE2.three.old}</span>
+                    <span>{server.DE2.three.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE2.three.new}</span>
+                  <span>{server.DE2.three.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
@@ -195,16 +199,16 @@ function VirtualServer() {
               </div>
 
               {/* 3-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: VIRTUAL.DE2.six.new, month: 6})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: server.DE2.six.new, month: 6})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE2.six.old}</span>
+                    <span>{server.DE2.six.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE2.six.new}</span>
+                  <span>{server.DE2.six.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
@@ -212,16 +216,16 @@ function VirtualServer() {
               </div>
 
               {/* 4-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: VIRTUAL.DE2.twelve.new, month: 12})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe2({price: server.DE2.twelve.new, month: 12})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE2.twelve.old}</span>
+                    <span>{server.DE2.twelve.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE2.twelve.new}</span>
+                  <span>{server.DE2.twelve.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
@@ -231,13 +235,15 @@ function VirtualServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;{VIRTUAL.DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;{server.DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE2_' + de2.month], '_blank')}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-2_' + de2.month : '[DE] RX-2_' + de2.month], '_blank')}>
+          {t('Оформить заказ')}
+        </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">AMD Ryzen9 9950X 5.7GHz</div>
+            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">2&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -258,7 +264,7 @@ function VirtualServer() {
 
       {/* DE3 */}
       <div className="tariffs__element">
-        <div className="tariffs__name tariffs__name--var3">DE3</div>
+        <div className="tariffs__name tariffs__name--var3">{server.DE3.name}</div>
         <div className="tariffs__display">
           <div className="tariffs__price">
             <span className="tariffs__symbol">&#8364;</span>
@@ -275,10 +281,10 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: VIRTUAL.DE3.one, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: server.DE3.one, month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE3.one}</span>
+                  <span>{server.DE3.one}</span>
                 </div>
                 <div className="selector__element"></div>
                 <div className="selector__element">
@@ -287,16 +293,16 @@ function VirtualServer() {
               </div>
 
               {/* 2-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: VIRTUAL.DE3.three.new, month: 3})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: server.DE3.three.new, month: 3})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE3.three.old}</span>
+                    <span>{server.DE3.three.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE3.three.new}</span>
+                  <span>{server.DE3.three.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
@@ -304,16 +310,16 @@ function VirtualServer() {
               </div>
 
               {/* 3-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: VIRTUAL.DE3.six.new, month: 6})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: server.DE3.six.new, month: 6})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE3.six.old}</span>
+                    <span>{server.DE3.six.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE3.six.new}</span>
+                  <span>{server.DE3.six.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
@@ -321,16 +327,16 @@ function VirtualServer() {
               </div>
 
               {/* 4-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: VIRTUAL.DE3.twelve.new, month: 12})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe3({price: server.DE3.twelve.new, month: 12})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE3.twelve.old}</span>
+                    <span>{server.DE3.twelve.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE3.twelve.new}</span>
+                  <span>{server.DE3.twelve.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
@@ -340,13 +346,15 @@ function VirtualServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;{VIRTUAL.DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;{server.DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE3_' + de3.month], '_blank')}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-3_' + de3.month : '[DE] RX-3_' + de3.month], '_blank')}>
+          {t('Оформить заказ')}
+        </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">AMD Ryzen9 9950X 5.7GHz</div>
+            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">4&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -367,7 +375,7 @@ function VirtualServer() {
 
       {/* DE4 */}
       <div className="tariffs__element">
-        <div className="tariffs__name tariffs__name--var4">DE4</div>
+        <div className="tariffs__name tariffs__name--var4">{server.DE4.name}</div>
         <div className="tariffs__display">
           <div className="tariffs__price">
             <span className="tariffs__symbol">&#8364;</span>
@@ -384,10 +392,10 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: VIRTUAL.DE4.one, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: server.DE4.one, month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE4.one}</span>
+                  <span>{server.DE4.one}</span>
                 </div>
                 <div className="selector__element"></div>
                 <div className="selector__element">
@@ -396,16 +404,16 @@ function VirtualServer() {
               </div>
 
               {/* 2-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: VIRTUAL.DE4.three.new, month: 3})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: server.DE4.three.new, month: 3})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE4.three.old}</span>
+                    <span>{server.DE4.three.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE4.three.new}</span>
+                  <span>{server.DE4.three.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
@@ -413,16 +421,16 @@ function VirtualServer() {
               </div>
 
               {/* 3-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: VIRTUAL.DE4.six.new, month: 6})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: server.DE4.six.new, month: 6})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE4.six.old}</span>
+                    <span>{server.DE4.six.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE4.six.new}</span>
+                  <span>{server.DE4.six.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
@@ -430,16 +438,16 @@ function VirtualServer() {
               </div>
 
               {/* 4-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: VIRTUAL.DE4.twelve.new, month: 12})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe4({price: server.DE4.twelve.new, month: 12})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE4.twelve.old}</span>
+                    <span>{server.DE4.twelve.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE4.twelve.new}</span>
+                  <span>{server.DE4.twelve.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
@@ -449,13 +457,15 @@ function VirtualServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;{VIRTUAL.DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;{server.DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE4_' + de4.month], '_blank')}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-4_' + de4.month : '[DE] RX-4_' + de4.month], '_blank')}>
+          {t('Оформить заказ')}
+        </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">AMD Ryzen9 9950X 5.7GHz</div>
+            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">8&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -476,7 +486,7 @@ function VirtualServer() {
 
       {/* DE5 */}
       <div className="tariffs__element">
-        <div className="tariffs__name tariffs__name--var5">DE5</div>
+        <div className="tariffs__name tariffs__name--var5">{server.DE5.name}</div>
         <div className="tariffs__display">
           <div className="tariffs__price">
             <span className="tariffs__symbol">&#8364;</span>
@@ -493,10 +503,10 @@ function VirtualServer() {
             <div className="selector__grid">
 
               {/* 1-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: VIRTUAL.DE5.one, month: 1})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: server.DE5.one, month: 1})}>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE5.one}</span>
+                  <span>{server.DE5.one}</span>
                 </div>
                 <div className="selector__element"></div>
                 <div className="selector__element">
@@ -505,16 +515,16 @@ function VirtualServer() {
               </div>
 
               {/* 2-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: VIRTUAL.DE5.three.new, month: 3})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: server.DE5.three.new, month: 3})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE5.three.old}</span>
+                    <span>{server.DE5.three.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE5.three.new}</span>
+                  <span>{server.DE5.three.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}
@@ -522,16 +532,16 @@ function VirtualServer() {
               </div>
 
               {/* 3-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: VIRTUAL.DE5.six.new, month: 6})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: server.DE5.six.new, month: 6})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE5.six.old}</span>
+                    <span>{server.DE5.six.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE5.six.new}</span>
+                  <span>{server.DE5.six.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}
@@ -539,16 +549,16 @@ function VirtualServer() {
               </div>
 
               {/* 4-ROW */}
-              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: VIRTUAL.DE5.twelve.new, month: 12})}>
+              <div className='selector__item selector__item--virtual __hover' onClick={() => setDe5({price: server.DE5.twelve.new, month: 12})}>
                 <div className="selector__element">
                   <div className="selector__old-price">
                     <span>&#8364;</span>
-                    <span>{VIRTUAL.DE5.twelve.old}</span>
+                    <span>{server.DE5.twelve.old}</span>
                   </div>
                 </div>
                 <div className="selector__element">
                   <span>&#8364;</span>
-                  <span>{VIRTUAL.DE5.twelve.new}</span>
+                  <span>{server.DE5.twelve.new}</span>
                 </div>
                 <div className="selector__element">
                   {t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}
@@ -558,13 +568,15 @@ function VirtualServer() {
           </div>
         </div>
         <div className='tariffs__discount'>
-          &#8364;&nbsp;{VIRTUAL.DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+          &#8364;&nbsp;{server.DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS['DE5_' + de5.month], '_blank')}>{t('Оформить заказ')}</Button>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-5_' + de5.month : '[DE] RX-5_' + de5.month], '_blank')}>
+          {t('Оформить заказ')}
+        </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">AMD Ryzen9 9950X 5.7GHz</div>
+            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">16&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">

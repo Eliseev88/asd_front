@@ -22,7 +22,7 @@
 
 	&__btns {
 		margin-bottom: 15px;
-		width: 374px;
+		width: 70%;
 		height: 40px;
 		display: flex;
 		align-items: center;
@@ -31,9 +31,19 @@
 		backdrop-filter: blur(11px);
 		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 		border: 1px solid rgba(255, 255, 255, 0.06);
+
+		&--sub {
+			width: 50%;
+			min-width: 300px;
+			height: 30px;
+		}
 	}
 
 	&__select-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 5px;
 		height: 100%;
 		width: 100%;
 		cursor: pointer;
@@ -69,9 +79,16 @@
 		}
 	}
 
+	&__flag-icon {
+		width: 20px;
+		height: 20px;
+		display: block;
+		border-radius: 50%;
+	}
+
 	&__country-btn {
-		width: 291px;
-		height: 40px;
+		width: 25%;
+		height: 30px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -295,7 +312,7 @@
 
 	&__item {
 		display: grid;
-		grid-template-columns: 56px 56px auto;
+		grid-template-columns: 50px 63px auto;
 		column-gap: 2px;
 
 		&--virtual {

@@ -2,35 +2,40 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import Button from './Button';
 import GE from '../assets/images/ge.png';
+import FN from '../assets/images/fn.png';
 import '../styles/Tariffs.scss';
-import VirtualServer from './VirtualServer';
-import DedicatedServer from './DedicatedServer';
+import GermanyServer from './GermanyServer';
+import FinlandServer from './FinlandServer';
 import { declension } from '../utils/declension';
-import { VIRTUAL, DEDICATED, TARIFF_LINKS } from '../data/tarrifs';
+import { GERMANY, FINLAND, TARIFF_LINKS } from '../data/tarrifs';
 
 function Tariffs() {
 	const {t} = useTranslation();
-	
-	const [server, setServer] = useState('virtual');
 
-	const [tariff, setTariff] = useState(VIRTUAL.DE1);
+	const [country, setCountry] = useState('germany');
+	const [amdType, setAMD] = useState('EPYC');
+	const [tariff, setTariff] = useState(GERMANY.EPYC.DE1);
+	const [month, setMonth] = useState(1);
 
-	const changeVirtualTariff = (tariffName) => {
-		setTariff(VIRTUAL[tariffName]);
+	const changeGermanyTariff = (tariffName) => {
+		setTariff(GERMANY[amdType][tariffName]);
 	}
-	const changeDedicatedTariff = (tariffName) => {
-		setTariff(DEDICATED[tariffName]);
+	const changeFinlandTariff = (tariffName) => {
+		setTariff(FINLAND[tariffName]);
 	}
 
-	const changeServer = (serverType) => {
-		if (serverType === server) return;
-		setServer(serverType);
+	const changeCountry = (sCountry) => {
+		if (sCountry === country) return;
+		setCountry(sCountry);
+	}
+
+	const changeAMDType = (sAMDType) => {
+		if (amdType === sAMDType) return;
+		setAMD(sAMDType);
 	}
 
 	const handleClickTariff = () => {
-		if (server === 'dedicated') return handleClick();
-
-		window.open(TARIFF_LINKS[tariff.name + '_12'], '_blank');
+		window.open(TARIFF_LINKS[tariff.full_name + month], '_blank');
 	}
 
 	const handleClick = () => {
@@ -67,12 +72,12 @@ function Tariffs() {
 	};
 
 	useEffect(() => {
-		setTariff(server === 'virtual' ? VIRTUAL.DE1 : DEDICATED.Gbps1);
-	}, [server]);
-
-	useEffect(() => {
-		setTariff(server === 'virtual' ? VIRTUAL.DE1 : DEDICATED.Gbps1);
-	}, []);
+		if (country === 'germany') {
+			setTariff(GERMANY[amdType].DE1);
+		} else {
+			setTariff(FINLAND['[FI] EP-1']);
+		}
+	}, [country, amdType]);
 
 	return (
 		<section className='tariffs' id='tariffs'>
@@ -82,24 +87,37 @@ function Tariffs() {
 			</div>
 			<div className="tariffs__btns">
 				<button
-					className={['tariffs__select-btn', server === 'virtual' ? '__active' : ''].join(' ')}
-					onClick={() => changeServer('virtual')}
+					className={['tariffs__select-btn', country === 'germany' ? '__active' : ''].join(' ')}
+					onClick={() => changeCountry('germany')}
 				>
-					{t('Виртуальные серверы')}
+					<img src={GE} alt="flag" />
+					{t('Германия, Франкфурт')}
 				</button>
 				<button
-					className={['tariffs__select-btn', server === 'dedicated' ? '__active' : ''].join(' ')}
-					onClick={() => changeServer('dedicated')}
+					className={['tariffs__select-btn', country === 'finland' ? '__active' : ''].join(' ')}
+					onClick={() => changeCountry('finland')}
 				>
-					{t('Выделенные серверы')}
+					<img src={FN} alt="flag" className='tariffs__flag-icon' />
+					{t('Финляндия, Хельсинки')}
 				</button>
 			</div>
-			<Button className='tariffs__country-btn' disabled>
-				<img src={GE} alt="flag" />
-				{t('Германия, Франкфурт (HI-CPU)')}
-			</Button>
+			{country === 'germany' && <div className="tariffs__btns tariffs__btns--sub">
+				<button
+					className={['tariffs__select-btn', amdType === 'EPYC' ? '__active' : ''].join(' ')}
+					onClick={() => changeAMDType('EPYC')}
+				>
+					AMD EPYC 9454
+				</button>
+				<button
+					className={['tariffs__select-btn', amdType === 'Ryzen' ? '__active' : ''].join(' ')}
+					onClick={() => changeAMDType('Ryzen')}
+				>
+					AMD Ryzen 9 9950X
+				</button>
+			</div>}
+			{country === 'finland' && <Button className='tariffs__country-btn' disabled>AMD EPYC 9454</Button>}
 			<div className="tariffs__wrp">
-				{server === 'virtual' ? <VirtualServer /> : <DedicatedServer />}
+				{country === 'germany' ? <GermanyServer amd={amdType} /> : <FinlandServer />}
 				<div className="tariffs__element">
 					<div className='tariffs__name tariffs__name--ind'>Individual</div>
 					<div className='tariffs__describe'>{t('По запросу')}</div>
@@ -112,12 +130,16 @@ function Tariffs() {
 					</div>
 				</div>
 			</div>
+
+
+
+			{/* MOBILE */}
 			<div className="mobile-tariffs">
-				{server === 'virtual' && <div className='mobile-tariffs__scroll'>
-					<div className={["tariffs__element __mobile", tariff.name === 'DE1' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE1')}>
-						<div className="tariffs__name tariffs__name--var1">DE1</div>
+				{country === 'germany' && <div className='mobile-tariffs__scroll'>
+					<div className={["tariffs__element __mobile", tariff.code === 'DE1' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('DE1')}>
+						<div className="tariffs__name tariffs__name--var1">{GERMANY[amdType].DE1.name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{VIRTUAL.DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{GERMANY[amdType].DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -139,10 +161,10 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'DE2' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE2')}>
-						<div className="tariffs__name tariffs__name--var2">DE2</div>
+					<div className={["tariffs__element __mobile", tariff.code === 'DE2' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('DE2')}>
+						<div className="tariffs__name tariffs__name--var2">{GERMANY[amdType].DE2.name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{VIRTUAL.DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{GERMANY[amdType].DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -164,10 +186,10 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'DE3' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE3')}>
-						<div className="tariffs__name tariffs__name--var3">DE3</div>
+					<div className={["tariffs__element __mobile", tariff.code === 'DE3' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('DE3')}>
+						<div className="tariffs__name tariffs__name--var3">{GERMANY[amdType].DE3.name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{VIRTUAL.DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{GERMANY[amdType].DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -189,10 +211,10 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'DE4' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE4')}>
-						<div className="tariffs__name tariffs__name--var4">DE4</div>
+					<div className={["tariffs__element __mobile", tariff.code === 'DE4' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('DE4')}>
+						<div className="tariffs__name tariffs__name--var4">{GERMANY[amdType].DE4.name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{VIRTUAL.DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{GERMANY[amdType].DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -214,10 +236,10 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'DE5' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('DE5')}>
-						<div className="tariffs__name tariffs__name--var5">DE5</div>
+					<div className={["tariffs__element __mobile", tariff.code === 'DE5' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('DE5')}>
+						<div className="tariffs__name tariffs__name--var5">{GERMANY[amdType].DE5.name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{VIRTUAL.DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{GERMANY[amdType].DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
@@ -239,7 +261,7 @@ function Tariffs() {
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeVirtualTariff('IND')}>
+					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeGermanyTariff('IND')}>
 						<div className="tariffs__name tariffs__name--ind">Individual</div>
 						<div className='tariffs__describe'>{t('По запросу')}</div>
 						<div className='tariffs__info'>
@@ -262,173 +284,133 @@ function Tariffs() {
 						</div>
 					</div>
 				</div>}
-				{server === 'dedicated' && <div className='mobile-tariffs__scroll'>
-					<div className={["tariffs__element __mobile", tariff.name === '1 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps1')}>
-						<div className="tariffs__name tariffs__name--var1">1 Gbps</div>
+				{country === 'finland' && <div className='mobile-tariffs__scroll'>
+					<div className={["tariffs__element __mobile", tariff.name === 'EP-1' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('[FI] EP-1')}>
+						<div className="tariffs__name tariffs__name--var1">{FINLAND['[FI] EP-1'].name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{DEDICATED.Gbps1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{FINLAND['[FI] EP-1'].discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">AMD Ryzen9 9950X</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">16 Cores</div>
-								<div className="tariffs__text">32 Threads @ 5.7GHz</div>
+								<div className="tariffs__text">AMD EPYC 9454</div>
+								<div className="tariffs__text">1&nbsp;vCPU</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">192 GB DDR5</div>
+								<div className="tariffs__text">2GB DDR5</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">2 x 4TB NVMe</div>
+								<div className="tariffs__text">30GB NVMe</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">Unmetered @ 1Gbps</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">Linux / Windows</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">10Gbps</div>
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === '10 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps10')}>
-						<div className="tariffs__name tariffs__name--var2">10 Gbps</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'EP-2' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('[FI] EP-2')}>
+						<div className="tariffs__name tariffs__name--var2">{FINLAND['[FI] EP-2'].name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{DEDICATED.Gbps10.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{FINLAND['[FI] EP-2'].discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">AMD Ryzen9 9950X</div>
-							</div>
-							<div className="tariffs__box">
-							<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">16 Cores</div>
-								<div className="tariffs__text">32 Threads @ 5.7GHz</div>
+								<div className="tariffs__text">AMD EPYC 9454</div>
+								<div className="tariffs__text">2&nbsp;vCPU</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">192 GB DDR5</div>
+								<div className="tariffs__text">4GB DDR5</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">2 x 4TB NVMe</div>
+								<div className="tariffs__text">60GB NVMe</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">Unmetered @ 10Gbps</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">Linux / Windows</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">10Gbps</div>
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === '25 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps25')}>
-						<div className="tariffs__name tariffs__name--var3">25 Gbps</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'EP-3' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('[FI] EP-3')}>
+						<div className="tariffs__name tariffs__name--var3">{FINLAND['[FI] EP-3'].name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{DEDICATED.Gbps25.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{FINLAND['[FI] EP-3'].discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">AMD Ryzen9 9950X</div>
-							</div>
-							<div className="tariffs__box">
-							<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">16 Cores</div>
-								<div className="tariffs__text">32 Threads @ 5.7GHz</div>
+								<div className="tariffs__text">AMD EPYC 9454</div>
+								<div className="tariffs__text">4&nbsp;vCPU</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">192 GB DDR5</div>
+								<div className="tariffs__text">8GB DDR5</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">2 x 4TB NVMe</div>
+								<div className="tariffs__text">120GB NVMe</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">Unmetered @ 25Gbps</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">Linux / Windows</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">10Gbps</div>
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === '40 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps40')}>
-						<div className="tariffs__name tariffs__name--var4">40 Gbps</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'EP-4' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('[FI] EP-4')}>
+						<div className="tariffs__name tariffs__name--var4">{FINLAND['[FI] EP-4'].name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{DEDICATED.Gbps40.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{FINLAND['[FI] EP-4'].discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">AMD Ryzen9 9950X</div>
-							</div>
-							<div className="tariffs__box">
-							<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">16 Cores</div>
-								<div className="tariffs__text">32 Threads @ 5.7GHz</div>
+								<div className="tariffs__text">AMD EPYC 9454</div>
+								<div className="tariffs__text">8&nbsp;vCPU</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">192 GB DDR5</div>
+								<div className="tariffs__text">16GB DDR5</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">2 x 4TB NVMe</div>
+								<div className="tariffs__text">240GB NVMe</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">Unmetered @ 40Gbps</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">Linux / Windows</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">10Gbps</div>
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === '100 Gbps' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('Gbps100')}>
-						<div className="tariffs__name tariffs__name--var5">100 Gbps</div>
+					<div className={["tariffs__element __mobile", tariff.name === 'EP-5' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('[FI] EP-5')}>
+						<div className="tariffs__name tariffs__name--var5">{FINLAND['[FI] EP-5'].name}</div>
 						<div className='tariffs__discount'>
-							&#8364;&nbsp;{DEDICATED.Gbps100.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
+							&#8364;&nbsp;{FINLAND['[FI] EP-5'].discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
 						</div>
 						<div className='tariffs__info'>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Процессор')}</div>
-								<div className="tariffs__text">AMD Ryzen9 9950X</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">16 Cores</div>
-								<div className="tariffs__text">32 Threads @ 5.7GHz</div>
+								<div className="tariffs__text">AMD EPYC 9454</div>
+								<div className="tariffs__text">16&nbsp;vCPU</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
-								<div className="tariffs__text">192 GB DDR5</div>
+								<div className="tariffs__text">32GB DDR5</div>
 							</div>
 							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Хранилище')}</div>
-								<div className="tariffs__text">2 x 4TB NVMe</div>
+								<div className="tariffs__text">480GB NVMe</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">Unmetered @ 100Gbps</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
-								<div className="tariffs__text">Linux / Windows</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
+								<div className="tariffs__text">10Gbps</div>
 							</div>
 						</div>
 					</div>
-					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeDedicatedTariff('IND')}>
+					<div className={["tariffs__element __mobile", tariff.name === 'Individual' ? '__active' : ''].join(' ')} onClick={() => changeFinlandTariff('IND')}>
 						<div className="tariffs__name tariffs__name--ind">Individual</div>
 						<div className='tariffs__describe'>{t('По запросу')}</div>
 						<div className='tariffs__info'>
@@ -437,10 +419,6 @@ function Tariffs() {
 								<div className="tariffs__text">&mdash;</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Ядра')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
 								<div className="tariffs__suptitle">{t('Память')}</div>
 								<div className="tariffs__text">&mdash;</div>
 							</div>
@@ -449,11 +427,7 @@ function Tariffs() {
 								<div className="tariffs__text">&mdash;</div>
 							</div>
 							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('Трафик')}</div>
-								<div className="tariffs__text">&mdash;</div>
-							</div>
-							<div className="tariffs__box">
-								<div className="tariffs__suptitle">{t('ОС')}</div>
+								<div className="tariffs__suptitle">{t('Скорость порта')}</div>
 								<div className="tariffs__text">&mdash;</div>
 							</div>
 						</div>
@@ -462,8 +436,11 @@ function Tariffs() {
 				<div className="mobile-tariffs__wrp">
 					<div className='mobile-tariffs__name'>{t('Тариф')} <span className={tariff.class}>{tariff.name}</span></div>
 					{tariff.name !== 'Individual' && <div>
-						<div className="mobile-tariffs__price">
-							<div className='mobile-tariffs__month'>{t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}</div>
+						<div className="mobile-tariffs__price" onClick={() => setMonth(1)}>
+							<div className='mobile-tariffs__item'>
+								<div className={['mobile-tariffs__cercle', month === 1 ? '__active' : ''].join(' ')}></div>
+								<div className='mobile-tariffs__month'>{t(declension('%d %s', 1, ['месяц', 'месяца', 'месяцев']))}</div>
+							</div>
 							<div className='mobile-tariffs__cost'>
 								<div className="selector__element">
 									<span>&#8364;</span>
@@ -471,8 +448,11 @@ function Tariffs() {
 								</div>
 							</div>
 						</div>
-						<div className="mobile-tariffs__price">
-							<div className='mobile-tariffs__month'>{t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}</div>
+						<div className="mobile-tariffs__price" onClick={() => setMonth(3)}>
+							<div className='mobile-tariffs__item'>
+								<div className={['mobile-tariffs__cercle', month === 3 ? '__active' : ''].join(' ')}></div>
+								<div className='mobile-tariffs__month'>{t(declension('%d %s', 3, ['месяц', 'месяца', 'месяцев']))}</div>
+							</div>
 							<div className='mobile-tariffs__cost'>
 								<div className="selector__old-price">
 									<span>&#8364;</span>
@@ -484,8 +464,11 @@ function Tariffs() {
 								</div>
 							</div>
 						</div>
-						<div className="mobile-tariffs__price">
-							<div className='mobile-tariffs__month'>{t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}</div>
+						<div className="mobile-tariffs__price" onClick={() => setMonth(6)}>
+							<div className='mobile-tariffs__item'>
+								<div className={['mobile-tariffs__cercle', month === 6 ? '__active' : ''].join(' ')}></div>
+								<div className='mobile-tariffs__month'>{t(declension('%d %s', 6, ['месяц', 'месяца', 'месяцев']))}</div>
+							</div>
 							<div className='mobile-tariffs__cost'>
 								<div className="selector__old-price">
 									<span>&#8364;</span>
@@ -497,8 +480,11 @@ function Tariffs() {
 								</div>
 							</div>
 						</div>
-						<div className="mobile-tariffs__price">
-							<div className='mobile-tariffs__month'>{t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}</div>
+						<div className="mobile-tariffs__price" onClick={() => setMonth(12)}>
+							<div className='mobile-tariffs__item'>
+								<div className={['mobile-tariffs__cercle', month === 12 ? '__active' : ''].join(' ')}></div>
+								<div className='mobile-tariffs__month'>{t(declension('%d %s', 12, ['месяц', 'месяца', 'месяцев']))}</div>
+							</div>
 							<div className='mobile-tariffs__cost'>
 								<div className="selector__old-price">
 									<span>&#8364;</span>

@@ -80,6 +80,20 @@
 			letter-spacing: 3px;
 		}
 	}
+	&__item {
+		display: flex;
+		align-items: center;
+	}
+	&__cercle {
+		margin-right: 11px;
+		width: 22px;
+		height: 22px;
+		background-image: url('../assets/icons/cercle.svg');
+
+		&.__active {
+			background-image: url('../assets/icons/full_cercle.svg');
+		}
+	}
 	&__cost {
 		display: flex;
 		gap: 10px;
@@ -96,7 +110,7 @@
 	width: 25px;
 	height: 21.5px;
 	border: none;
-	background-image: url('../assets//icons/burger.svg');
+	background-image: url('../assets/icons/burger.svg');
 	background-color: transparent;
 	background-repeat: no-repeat;
 	cursor: pointer;
