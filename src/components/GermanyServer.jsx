@@ -1,6 +1,6 @@
 import { TariffContext } from '../providers/TariffContext';
 import { TARIFF_OBJ, GERMANY, TARIFF_LINKS } from '../data/tarrifs';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { declension } from '../utils/declension';
 import Button from './Button';
@@ -33,6 +33,64 @@ function VirtualServer({amd}) {
     month: 1,
     price: server.DE5.one
   });
+
+  useEffect(() => {
+    let monthDE1 = '';
+    let monthDE2 = '';
+    let monthDE3 = '';
+    let monthDE4 = '';
+    let monthDE5 = '';
+
+    if (de1.month === 1) monthDE1 = 'one';
+    else if (de1.month === 3) monthDE1 = 'three';
+    else if (de1.month === 6) monthDE1 = 'six';
+    else if (de1.month === 12) monthDE1 = 'twelve';
+
+    setDe1({
+      month: de1.month,
+      price: de1.month === 1 ? server.DE1[monthDE1] : server.DE1[monthDE1].new
+    })
+
+    if (de2.month === 1) monthDE2 = 'one';
+    else if (de2.month === 3) monthDE2 = 'three';
+    else if (de2.month === 6) monthDE2 = 'six';
+    else if (de2.month === 12) monthDE2 = 'twelve';
+
+    setDe2({
+      month: de2.month,
+      price: de2.month === 1 ? server.DE2[monthDE2] :  server.DE2[monthDE2].new
+    });
+
+    if (de3.month === 1) monthDE3 = 'one';
+    else if (de3.month === 3) monthDE3 = 'three';
+    else if (de3.month === 6) monthDE3 = 'six';
+    else if (de3.month === 12) monthDE3 = 'twelve';
+
+    setDe3({
+      month: de3.month,
+      price: de3.month === 1 ? server.DE3[monthDE3] :  server.DE3[monthDE3].new
+    });
+
+    if (de4.month === 1) monthDE4 = 'one';
+    else if (de4.month === 3) monthDE4 = 'three';
+    else if (de4.month === 6) monthDE4 = 'six';
+    else if (de4.month === 12) monthDE4 = 'twelve';
+
+    setDe4({
+      month: de4.month,
+      price: de4.month === 1 ? server.DE4[monthDE4] :  server.DE4[monthDE4].new
+    });
+
+    if (de5.month === 1) monthDE5 = 'one';
+    else if (de5.month === 3) monthDE5 = 'three';
+    else if (de5.month === 6) monthDE5 = 'six';
+    else if (de5.month === 12) monthDE5 = 'twelve';
+
+    setDe5({
+      month: de5.month,
+      price: de5.month === 1 ? server.DE5[monthDE5] :  server.DE5[monthDE5].new
+    });
+  }, [amd]);
 
 	const changeVisibility = (e, tariffName) => {
 		e.stopPropagation();
@@ -126,13 +184,13 @@ function VirtualServer({amd}) {
         <div className='tariffs__discount'>
           &#8364;&nbsp;{server.DE1.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-1_' + de1.month : '[DE] RX-1_' + de1.month], '_blank')}>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[amd === 'EPYC' ? '[DE] EP-1_' + de1.month : '[DE] RX-1_' + de1.month], '_blank')}>
           {t('Оформить заказ')}
         </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
+            <div className="tariffs__text">{amd === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">1&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -237,13 +295,13 @@ function VirtualServer({amd}) {
         <div className='tariffs__discount'>
           &#8364;&nbsp;{server.DE2.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-2_' + de2.month : '[DE] RX-2_' + de2.month], '_blank')}>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[amd === 'EPYC' ? '[DE] EP-2_' + de2.month : '[DE] RX-2_' + de2.month], '_blank')}>
           {t('Оформить заказ')}
         </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
+            <div className="tariffs__text">{amd === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">2&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -348,13 +406,13 @@ function VirtualServer({amd}) {
         <div className='tariffs__discount'>
           &#8364;&nbsp;{server.DE3.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-3_' + de3.month : '[DE] RX-3_' + de3.month], '_blank')}>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[amd === 'EPYC' ? '[DE] EP-3_' + de3.month : '[DE] RX-3_' + de3.month], '_blank')}>
           {t('Оформить заказ')}
         </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
+            <div className="tariffs__text">{amd === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">4&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -459,13 +517,13 @@ function VirtualServer({amd}) {
         <div className='tariffs__discount'>
           &#8364;&nbsp;{server.DE4.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-4_' + de4.month : '[DE] RX-4_' + de4.month], '_blank')}>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[amd === 'EPYC' ? '[DE] EP-4_' + de4.month : '[DE] RX-4_' + de4.month], '_blank')}>
           {t('Оформить заказ')}
         </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
+            <div className="tariffs__text">{amd === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">8&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
@@ -570,13 +628,13 @@ function VirtualServer({amd}) {
         <div className='tariffs__discount'>
           &#8364;&nbsp;{server.DE5.discount}&nbsp;{t('в месяц')}<br></br>{t('при оплате')} 12&nbsp;{t('месяцев')}
         </div>
-        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[server === 'EPYC' ? '[DE] EP-5_' + de5.month : '[DE] RX-5_' + de5.month], '_blank')}>
+        <Button className='tariffs__order-btn' onClick={() => window.open(TARIFF_LINKS[amd === 'EPYC' ? '[DE] EP-5_' + de5.month : '[DE] RX-5_' + de5.month], '_blank')}>
           {t('Оформить заказ')}
         </Button>
         <div className='tariffs__info'>
           <div className="tariffs__box">
             <div className="tariffs__suptitle">{t('Процессор')}</div>
-            <div className="tariffs__text">{server === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
+            <div className="tariffs__text">{amd === 'EPYC' ? 'AMD EPYC 9454' : 'AMD Ryzen9 9950X 5.7GHz'}</div>
             <div className="tariffs__text">16&nbsp;vCPU</div>
           </div>
           <div className="tariffs__box">
