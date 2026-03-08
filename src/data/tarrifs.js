@@ -55,7 +55,7 @@ export const GERMANY = {
 			},
 			six: {
 				old: '96',
-				new: '85,4'
+				new: '86,4'
 			},
 			twelve: {
 				old: '192',
@@ -119,7 +119,7 @@ export const GERMANY = {
 			},
 			twelve: {
 				old: '1536',
-				new: '1229'
+				new: '1228,8'
 			},
 			discount: '102,4'
 		},
@@ -271,7 +271,7 @@ export const FINLAND = {
 		},
 		six: {
 			old: '96',
-			new: '85,4'
+			new: '86,4'
 		},
 		twelve: {
 			old: '192',
@@ -332,7 +332,7 @@ export const FINLAND = {
 		},
 		twelve: {
 			old: '1536',
-			new: '1229'
+			new: '1228,8'
 		},
 		discount: '102,4'
 	},

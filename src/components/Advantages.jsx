@@ -13,7 +13,7 @@ function Advantages() {
 					{t('Высокая скорость до')}&nbsp;25&nbsp;{t('Гбит/с')}
 				</div>
 				<div className="advantages__text">
-					{t('Серверы на')}&nbsp;AMD Ryzen 9&nbsp;и&nbsp;NVMe-{t('дисках обеспечивают ')}
+					{t('Серверы на')}&nbsp;AMD Ryzen 9&nbsp;{t('и')}&nbsp;EPYC 9454, {t('с')} NVMe-{t('дисками обеспечивают ')}
 					<span className='advantages__text--var1'>{t('мгновенную обработку')}</span> {t('запросов и')}&nbsp;{t('плавную работу проектов')}.
 				</div>
 			</div>
